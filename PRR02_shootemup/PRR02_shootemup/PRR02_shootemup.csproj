@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Game1.cs" />
     <Compile Include="GameStates\GameState.cs" />
+    <Compile Include="LevelEditor.cs" />
     <Compile Include="Libraries\FontLibrary.cs" />
     <Compile Include="Libraries\MusicLibrary.cs" />
     <Compile Include="Libraries\TextureLibrary.cs" />

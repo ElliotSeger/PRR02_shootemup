@@ -17,17 +17,18 @@ namespace ShootEmUp.Objects
     {
         float myMaxDistance = 1750;
         float myTraveledDistance = 0;
-        float mySpeed = 15;
         float myDamage;
         Vector2 myDirection;
         GameObject myShooter;
+        float mySpeed;
 
-        public Bullet(Vector2 aDirection, Vector2 aPosition, float aDamage, GameObject aShooter) :
+        public Bullet(Vector2 aDirection, Vector2 aPosition, float aDamage, float aSpeed, GameObject aShooter) :
             base(TextureLibrary.GetTexture("Bullet"), new Rectangle(aPosition.ToPoint(), new Point(50, 50)))
         {
             myDirection = aDirection;
             myDamage = aDamage;
             myShooter = aShooter;
+            mySpeed = aSpeed;
         }
 
         public override void Update(GameTime someTime)

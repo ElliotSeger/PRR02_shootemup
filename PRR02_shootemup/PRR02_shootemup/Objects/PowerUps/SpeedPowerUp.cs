@@ -20,7 +20,7 @@ namespace ShootEmUp.Objects.PowerUps
 
         protected override void OnPickup(PlayerShip aShip)
         {
-            aShip.GiveSpeed(100);
+            aShip.GiveSpeed(1000);
             Game1.myObjects.Remove(this);
         }
     }

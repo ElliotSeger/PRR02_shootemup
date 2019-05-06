@@ -19,23 +19,39 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         float myElapsedTime = 0;
         float myDamage = 10;
 
+
+
+        int myDirectionCount = 3;
+        float myTotalShootingAngle = 1;
+        float myCenterAngle = 1.725f;
+
         public override void Update(GameTime someTime)
         {
             float tempDeltaTime = (float)someTime.ElapsedGameTime.TotalSeconds;
             myElapsedTime += tempDeltaTime;
 
-            if (myElapsedTime >= 0.3f)
+            if (myElapsedTime >= 0.8f)
             {
                 myElapsedTime = 0;
-                Game1.myObjects.Add(new Bullet(Vector2.UnitY, AccessRectangle.Location.ToVector2(), myDamage, this));
-                Game1.myObjects.Add(new Bullet());
-                Game1.myObjects.Add(new Bullet());
+                Shoot();
             }
 
             if (AcccessHealth <= 0)
             {
                 Game1.myObjects.Remove(this);
                 (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(100);
+            }
+        }
+
+        private void Shoot()
+        {
+            float tempAnglePerShot = myTotalShootingAngle / myDirectionCount;
+
+            for (int i = 0; i < myDirectionCount; ++i)
+            {
+                float tempAngle = tempAnglePerShot * i + myCenterAngle - myTotalShootingAngle * 0.5f;
+                Vector2 tempDirection = new Vector2((float)Math.Cos(tempAngle), (float)Math.Sin(tempAngle));
+                Game1.myObjects.Add(new Bullet(tempDirection, AccessRectangle.Location.ToVector2(), myDamage, 12, this));
             }
         }
     }

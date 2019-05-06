@@ -53,9 +53,8 @@ namespace ShootEmUp
                 new ScoreUI(),
                 new HealthPowerUp(),
                 new SpeedPowerUp(),
-                // new EnemyCargoShip(),
+                //new EnemyCargoShip(),
                 new EnemyShipBeta(),
-                new Player(),
             };
             myObjects.Add(new HealthUI());
         }

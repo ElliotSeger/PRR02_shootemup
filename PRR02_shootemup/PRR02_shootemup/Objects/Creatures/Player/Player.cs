@@ -16,7 +16,7 @@ namespace ShootEmUp.Objects.Creatures.Player
         float myElapsedTime = 0;
 
         public Player() :
-            base(TextureLibrary.GetTexture("Player"), new Rectangle(750, 750, 100, 100), 100)
+            base(TextureLibrary.GetTexture("Player"), new Rectangle(750, 750, 100, 100), 100, 100)
         {
             mySpeed = 300;
         }

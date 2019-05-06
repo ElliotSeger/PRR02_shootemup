@@ -27,7 +27,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
             if (myElapsedTime >= 0.3f)
             {
                 myElapsedTime = 0;
-                Game1.myObjects.Add(new Bullet(Vector2.UnitY, AccessRectangle.Location.ToVector2(), myDamage, this));
+                Game1.myObjects.Add(new Bullet(Vector2.UnitY, AccessRectangle.Location.ToVector2(), myDamage, 15, this));
             }
 
             if (AcccessHealth <= 0)
