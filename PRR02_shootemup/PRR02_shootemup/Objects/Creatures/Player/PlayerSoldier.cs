@@ -14,6 +14,9 @@ namespace ShootEmUp.Objects.Creatures.Player
         float mySpeed;
         Vector2 myMoveDirection; 
         float myElapsedTime = 0;
+        Vector2 velocity;
+        bool hasJumped;
+        Vector2 position;
 
         public PlayerSoldier() :
             base(TextureLibrary.GetTexture("Player"), new Rectangle(750, 750, 100, 100), 100, 100)
@@ -50,7 +53,32 @@ namespace ShootEmUp.Objects.Creatures.Player
                 AccessPosition += myMoveDirection * mySpeed * tempDeltaTime;
             }
 
-            
+        }
+
+        public void Jump(GameTime someTime)
+        {
+            if (Keyboard.GetState().IsKeyDown(Keys.Space) && hasJumped == false)
+            {
+                position.Y -= 10f;
+                velocity.Y = -5f;
+                hasJumped = true;
+            }
+
+            if (hasJumped == true)
+            {
+                float i = 2f;
+                velocity.Y += 0.15f * i;
+            }
+
+            if (position.Y >= 450)
+            {
+                hasJumped = false;
+            }
+
+            if (hasJumped == false)
+            {
+                velocity.Y = 0f;
+            }
         }
     }
 }

@@ -57,7 +57,7 @@ namespace ShootEmUp
                 //new EnemyCargoShip(),
                 new EnemyShipBeta(),
                 new Coin(),
-                // new Player(),
+                new Player(),
             };
             myObjects.Add(new HealthUI());
         }
