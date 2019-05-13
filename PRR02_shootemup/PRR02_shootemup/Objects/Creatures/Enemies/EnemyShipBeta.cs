@@ -19,11 +19,9 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         float myElapsedTime = 0;
         float myDamage = 10;
 
-
-
         int myDirectionCount = 3;
         float myTotalShootingAngle = 1;
-        float myCenterAngle = 1.725f;
+        float myCenterAngle = MathHelper.PiOver2;
 
         public override void Update(GameTime someTime)
         {
@@ -39,13 +37,13 @@ namespace ShootEmUp.Objects.Creatures.Enemies
             if (AcccessHealth <= 0)
             {
                 Game1.myObjects.Remove(this);
-                (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(100);
+                (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(75);
             }
         }
 
         private void Shoot()
         {
-            float tempAnglePerShot = myTotalShootingAngle / myDirectionCount;
+            float tempAnglePerShot = myTotalShootingAngle / (myDirectionCount - 1);
 
             for (int i = 0; i < myDirectionCount; ++i)
             {

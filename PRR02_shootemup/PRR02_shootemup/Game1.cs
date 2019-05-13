@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ShootEmUp.Collectibles;
 using ShootEmUp.Libraries;
 using ShootEmUp.Objects;
 using ShootEmUp.Objects.Creatures;
@@ -51,10 +52,12 @@ namespace ShootEmUp
                 new PlayerShip(),
                 new EnemyShipAlpha(),
                 new ScoreUI(),
-                new HealthPowerUp(),
-                new SpeedPowerUp(),
+                // new HealthPowerUp(),
+                // new SpeedPowerUp(),
                 //new EnemyCargoShip(),
                 new EnemyShipBeta(),
+                new Coin(),
+                // new Player(),
             };
             myObjects.Add(new HealthUI());
         }

@@ -11,21 +11,27 @@ using System.Threading.Tasks;
 
 namespace ShootEmUp.UserInterface
 {
-    class DeathUI : GameObject
+    class CoinUI : GameObject
     {
         SpriteFont myFont;
-        Player myPlayer;
+        int myCoins;
+        PlayerSoldier myPlayer;
 
-        public DeathUI() :
+        public CoinUI() :
             base(null, new Rectangle())
         {
             myFont = FontLibrary.GetFont("Font");
-            myPlayer = Game1.myObjects.Where(x => x is Player).First() as Player;
+            myPlayer = Game1.myObjects.Where(x => x is PlayerSoldier).First() as PlayerSoldier;
         }
 
-        public void Update()
+        public void IncreaseCoins()
         {
 
+        }
+
+        public override void Draw(GameTime someTime, SpriteBatch aSpriteBatch)
+        {
+            aSpriteBatch.DrawString(myFont, $"Coins: ", new Vector2(1000, 100), Color.White);
         }
     }
 }

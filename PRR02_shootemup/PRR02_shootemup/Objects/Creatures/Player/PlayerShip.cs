@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
+using ShootEmUp.UserInterface;
 
 namespace ShootEmUp.Objects.Creatures.Player
 {
@@ -36,7 +37,7 @@ namespace ShootEmUp.Objects.Creatures.Player
 
             KeyboardState tempKeyboardState = Keyboard.GetState();
 
-            #region Skeppets kontroller. Låter skeppet flytta i fyra riktningar med W-, A-, S- och D-tangenterna.
+            // Skeppets kontroller. Låter skeppet flytta i fyra riktningar med W-, A-, S- och D-tangenterna.
 
             if (aKeyboardState.IsKeyDown(Keys.W))
             {
@@ -57,8 +58,6 @@ namespace ShootEmUp.Objects.Creatures.Player
             {
                 myMoveDirection.X = 1;
             }
-
-            #endregion
 
             if (myMoveDirection != Vector2.Zero)
             {
@@ -94,6 +93,7 @@ namespace ShootEmUp.Objects.Creatures.Player
             if (AcccessHealth <= 0)
             {
                 Game1.myObjects.Remove(this);
+                //DeathUI.Update();
             }
 
             myPreviousKeyboardState = tempKeyboardState;
