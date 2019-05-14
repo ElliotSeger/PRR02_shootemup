@@ -9,6 +9,7 @@ using ShootEmUp.Objects.Creatures.Enemies;
 using ShootEmUp.Objects.Creatures.Player;
 using ShootEmUp.Objects.PowerUps;
 using ShootEmUp.UI;
+using ShootEmUp.UserInterface;
 using System;
 using System.Collections.Generic;
 
@@ -57,7 +58,8 @@ namespace ShootEmUp
                 //new EnemyCargoShip(),
                 new EnemyShipBeta(),
                 new Coin(),
-                new Player(),
+                new PlayerSoldier(),
+                new DeathUI(),
             };
             myObjects.Add(new HealthUI());
         }

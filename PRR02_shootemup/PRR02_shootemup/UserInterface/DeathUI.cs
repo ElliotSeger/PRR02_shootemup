@@ -20,12 +20,11 @@ namespace ShootEmUp.UserInterface
             base(null, new Rectangle())
         {
             myFont = FontLibrary.GetFont("Font");
-            myPlayer = Game1.myObjects.Where(x => x is Player).First() as Player;
         }
 
-        public void Update()
+        public override void Draw(GameTime someTime, SpriteBatch aSpriteBatch)
         {
-
+            aSpriteBatch.DrawString(FontLibrary.GetFont("Font"), "You died!", new Vector2(500, 500), Color.White);
         }
     }
 }
