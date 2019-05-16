@@ -26,7 +26,7 @@ namespace ShootEmUp.Objects.Creatures
             float tempDeltaTime = (float)someTime.ElapsedGameTime.TotalSeconds;
             myElapsedTime += tempDeltaTime;
 
-            IEnumerable<GameObject> tempPlayers = Game1.myObjects.Where(x => x is Player.PlayerShip);
+            IEnumerable<GameObject> tempPlayers = Game1.myObjects.Where(x => x is Player.Player);
             if (tempPlayers.Count() < 1)
             {
                 return;

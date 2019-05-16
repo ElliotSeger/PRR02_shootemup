@@ -15,13 +15,13 @@ namespace ShootEmUp.UserInterface
     {
         SpriteFont myFont;
         int myCoins;
-        PlayerSoldier myPlayer;
+        Player myPlayer;
 
         public CoinUI() :
             base(null, new Rectangle())
         {
             myFont = FontLibrary.GetFont("Font");
-            myPlayer = Game1.myObjects.Where(x => x is PlayerSoldier).First() as PlayerSoldier;
+            myPlayer = Game1.myObjects.Where(x => x is Player).First() as Player;
         }
 
         public void IncreaseCoins()

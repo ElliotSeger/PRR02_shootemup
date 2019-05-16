@@ -15,13 +15,13 @@ namespace ShootEmUp.UI
     {
         SpriteFont myFont;
         int myHealth;
-        PlayerShip myPlayerShip;
+        Player myPlayerShip;
 
         public HealthUI() :
             base(null, new Rectangle())
         {
             myFont = FontLibrary.GetFont("Font");
-            myPlayerShip = Game1.myObjects.Where(x => x is PlayerShip).First() as PlayerShip;
+            myPlayerShip = Game1.myObjects.Where(x => x is Player).First() as Player;
         }
 
         public void DecreaseHealth(int aHealth)

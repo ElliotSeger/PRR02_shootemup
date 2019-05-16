@@ -50,7 +50,7 @@ namespace ShootEmUp
 
             myObjects = new List<GameObject>
             {
-                new PlayerShip(),
+                new Player(),
                 new EnemyShipAlpha(),
                 new ScoreUI(),
                 // new HealthPowerUp(),
@@ -58,7 +58,6 @@ namespace ShootEmUp
                 //new EnemyCargoShip(),
                 new EnemyShipBeta(),
                 new Coin(),
-                new PlayerSoldier(),
                 new DeathUI(),
             };
             myObjects.Add(new HealthUI());

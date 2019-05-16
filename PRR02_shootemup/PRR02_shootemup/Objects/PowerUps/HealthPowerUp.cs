@@ -18,7 +18,7 @@ namespace ShootEmUp.Objects.PowerUps
 
         }
 
-        protected override void OnPickup(PlayerShip aShip)
+        protected override void OnPickup(Player aShip)
         {
             aShip.GiveHealth(10);
             Game1.myObjects.Remove(this);

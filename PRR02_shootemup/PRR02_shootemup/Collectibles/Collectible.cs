@@ -24,12 +24,12 @@ namespace ShootEmUp.Collectibles
             for (int i = Game1.myObjects.Count - 1; i >= 0; --i)
             {
                 GameObject tempCurrentObject = Game1.myObjects[i];
-                if (tempCurrentObject is PlayerSoldier tempPlayer && tempCurrentObject.AccessRectangle.Intersects(AccessRectangle))
+                if (tempCurrentObject is Player tempPlayer && tempCurrentObject.AccessRectangle.Intersects(AccessRectangle))
                     OnPickup(tempPlayer);
             }
         }
 
-        protected virtual void OnPickup(PlayerSoldier aPlayer)
+        protected virtual void OnPickup(Player aPlayer)
         {
 
         }

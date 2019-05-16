@@ -25,14 +25,14 @@ namespace ShootEmUp.PowerUps
             for (int i = Game1.myObjects.Count - 1; i >= 0; --i)
             {
                 GameObject tempCurrentObject = Game1.myObjects[i];
-                if (tempCurrentObject is PlayerShip tempShip && tempCurrentObject.AccessRectangle.Intersects(AccessRectangle))
+                if (tempCurrentObject is Player tempShip && tempCurrentObject.AccessRectangle.Intersects(AccessRectangle))
                 {
                     OnPickup(tempShip);
                 }
             }
         }
 
-        protected virtual void OnPickup(PlayerShip aShip)
+        protected virtual void OnPickup(Player aShip)
         {
 
         }

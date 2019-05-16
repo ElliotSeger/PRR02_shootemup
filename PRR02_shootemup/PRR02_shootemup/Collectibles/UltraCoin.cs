@@ -17,7 +17,7 @@ namespace ShootEmUp.Collectibles
 
         }
 
-        protected override void OnPickup(PlayerSoldier aPlayer)
+        protected override void OnPickup(Player aPlayer)
         {
             
             Game1.myObjects.Remove(this);

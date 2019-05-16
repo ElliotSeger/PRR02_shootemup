@@ -60,8 +60,6 @@
     <Compile Include="Objects\Creatures\Enemies\EnemyShipBeta.cs" />
     <Compile Include="Objects\Creatures\Enemies\EnemyShipGamma.cs" />
     <Compile Include="Objects\Creatures\Player\Player.cs" />
-    <Compile Include="Objects\Creatures\Player\PlayerSoldier.cs" />
-    <Compile Include="Objects\Creatures\Player\PlayerShip.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Objects\PowerUps\HealthPowerUp.cs" />
     <Compile Include="Objects\PowerUps\PowerUp.cs" />
@@ -138,8 +136,6 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Objects\Creatures\Enemies\PlayerShipEnemies\" />
-    <Folder Include="Objects\Creatures\Enemies\PlayerSoldierEnemies\" />
     <Folder Include="Objects\Upgrades\AbilityUpgrades\" />
     <Folder Include="Objects\Upgrades\BulletUpgrades\" />
     <Folder Include="Objects\Upgrades\HealthUpgrades\" />
