@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 using ShootEmUp.Objects.Creatures;
 using ShootEmUp.PowerUps;
+using ShootEmUp.Objects.Creatures.Enemies;
 
 namespace ShootEmUp.Objects
 {
@@ -44,6 +45,11 @@ namespace ShootEmUp.Objects
                 GameObject tempCurrentObject = Game1.myObjects[i];
                 if (myShooter != tempCurrentObject && tempCurrentObject != this && !(tempCurrentObject is Bullet) && tempCurrentObject.AccessRectangle.Intersects(tempRectangle))
                 {
+                    if (tempCurrentObject is BaseEnemy && myShooter is BaseEnemy)
+                    {
+                        continue;
+                    }
+
                     if (tempCurrentObject is Creature)
                     {
                         (tempCurrentObject as Creature).TakeDamage(10);

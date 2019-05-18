@@ -23,6 +23,7 @@ namespace ShootEmUp
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public static List<GameObject> myObjects;
+        EnemySpawner myEnemySpawner;
 
         public Game1()
         {
@@ -51,7 +52,7 @@ namespace ShootEmUp
             myObjects = new List<GameObject>
             {
                 new Player(),
-                new EnemyShipAlpha(),
+                
                 new ScoreUI(),
                 // new HealthPowerUp(),
                 // new SpeedPowerUp(),
@@ -61,6 +62,8 @@ namespace ShootEmUp
                 new DeathUI(),
             };
             myObjects.Add(new HealthUI());
+            myEnemySpawner = new EnemySpawner(
+                (5, new EnemyShipAlpha()));
         }
 
         /// <summary>
@@ -100,6 +103,8 @@ namespace ShootEmUp
             {
                 myObjects[i].Update(gameTime);
             }
+
+            myEnemySpawner.Update(gameTime);
 
             // TODO: Add your update logic here
 
