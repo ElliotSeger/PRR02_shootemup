@@ -60,10 +60,14 @@ namespace ShootEmUp
                 new EnemyShipBeta(),
                 new Coin(),
                 new DeathUI(),
+                new CoinUI(),
+                new UltraCoin(),
             };
             myObjects.Add(new HealthUI());
             myEnemySpawner = new EnemySpawner(
-                (5, new EnemyShipAlpha()));
+                (5, new EnemyShipAlpha()),
+                (5, new EnemyShipAlpha())
+                );
         }
 
         /// <summary>

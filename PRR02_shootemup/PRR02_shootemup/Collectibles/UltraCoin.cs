@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using ShootEmUp.Libraries;
 using ShootEmUp.Objects.Creatures.Player;
+using ShootEmUp.UserInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +13,15 @@ namespace ShootEmUp.Collectibles
     class UltraCoin : Collectible
     {
         public UltraCoin() :
-            base(TextureLibrary.GetTexture(""), new Rectangle())
+            base(TextureLibrary.GetTexture("Coin"), new Rectangle(750, 300, 40, 40))
         {
 
         }
 
         protected override void OnPickup(Player aPlayer)
         {
-            
             Game1.myObjects.Remove(this);
+            (Game1.myObjects.Where(x => x is CoinUI).First() as CoinUI).AddCoins(5);
         }
     }
 }

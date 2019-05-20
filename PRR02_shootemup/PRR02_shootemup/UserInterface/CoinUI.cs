@@ -15,23 +15,21 @@ namespace ShootEmUp.UserInterface
     {
         SpriteFont myFont;
         int myCoins;
-        Player myPlayer;
 
         public CoinUI() :
             base(null, new Rectangle())
         {
             myFont = FontLibrary.GetFont("Font");
-            myPlayer = Game1.myObjects.Where(x => x is Player).First() as Player;
         }
 
-        public void IncreaseCoins()
+        public void AddCoins(int aCoins)
         {
-
+            myCoins += aCoins;
         }
 
         public override void Draw(GameTime someTime, SpriteBatch aSpriteBatch)
         {
-            aSpriteBatch.DrawString(myFont, $"Coins: ", new Vector2(1000, 100), Color.White);
+            aSpriteBatch.DrawString(myFont, $"Coins {myCoins}", new Vector2(50, 100), Color.White);
         }
     }
 }

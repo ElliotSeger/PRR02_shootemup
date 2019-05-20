@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using ShootEmUp.Libraries;
 using ShootEmUp.Objects.Creatures.Player;
+using ShootEmUp.UserInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace ShootEmUp.Collectibles
     class Coin : Collectible
     {
         public Coin() :
-            base(TextureLibrary.GetTexture("Coin"), new Rectangle(750, 100, 64, 64))
+            base(TextureLibrary.GetTexture("Coin"), new Rectangle(750, 100, 40, 40))
         {
 
         }
@@ -20,6 +21,7 @@ namespace ShootEmUp.Collectibles
         protected override void OnPickup(Player aPlayer)
         {
             Game1.myObjects.Remove(this);
+            (Game1.myObjects.Where(x => x is CoinUI).First() as CoinUI).AddCoins(1);
         }
     }
 }

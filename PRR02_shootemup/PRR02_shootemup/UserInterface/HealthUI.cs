@@ -15,13 +15,13 @@ namespace ShootEmUp.UI
     {
         SpriteFont myFont;
         int myHealth;
-        Player myPlayerShip;
+        Player myPlayer;
 
         public HealthUI() :
             base(null, new Rectangle())
         {
             myFont = FontLibrary.GetFont("Font");
-            myPlayerShip = Game1.myObjects.Where(x => x is Player).First() as Player;
+            myPlayer = Game1.myObjects.Where(x => x is Player).First() as Player;
         }
 
         public void DecreaseHealth(int aHealth)
@@ -31,7 +31,7 @@ namespace ShootEmUp.UI
 
         public override void Draw(GameTime someTime, SpriteBatch aSpriteBatch)
         {
-            aSpriteBatch.DrawString(myFont, $"Health {myPlayerShip.AcccessHealth}", new Vector2(1000, 50), Color.White);
+            aSpriteBatch.DrawString(myFont, $"Health {myPlayer.AcccessHealth}", new Vector2(1000, 50), Color.White);
         }
     }
 }

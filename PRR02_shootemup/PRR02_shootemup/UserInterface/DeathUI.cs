@@ -14,7 +14,7 @@ namespace ShootEmUp.UserInterface
     class DeathUI : GameObject
     {
         SpriteFont myFont;
-        Player myPlayer;
+        string myDeathScreen;
 
         public DeathUI() :
             base(null, new Rectangle())
@@ -22,9 +22,14 @@ namespace ShootEmUp.UserInterface
             myFont = FontLibrary.GetFont("Font");
         }
 
+        public void ShowDeathScreen(string aDeathScreen)
+        {
+            myDeathScreen += aDeathScreen;
+        }
+
         public override void Draw(GameTime someTime, SpriteBatch aSpriteBatch)
         {
-            aSpriteBatch.DrawString(FontLibrary.GetFont("Font"), "You died!", new Vector2(500, 500), Color.White);
+            aSpriteBatch.DrawString(myFont, "", new Vector2(500, 500), Color.White);
         }
     }
 }

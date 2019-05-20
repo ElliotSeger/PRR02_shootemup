@@ -13,7 +13,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         public EnemyShipBeta() :
             base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(500, 200, 64, 48), 10)
         {
-
+            AccessSpeed = 100;
         }
 
         float myElapsedTime = 0;
@@ -39,6 +39,8 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 Game1.myObjects.Remove(this);
                 (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(75);
             }
+
+            Move(someTime, Vector2.UnitY);
         }
 
         private void Shoot()
@@ -51,6 +53,11 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 Vector2 tempDirection = new Vector2((float)Math.Cos(tempAngle), (float)Math.Sin(tempAngle));
                 Game1.myObjects.Add(new Bullet(tempDirection, AccessRectangle.Location.ToVector2(), myDamage, 12, this));
             }
+        }
+
+        public void Move(GameTime someTime, Vector2 aDirection)
+        {
+            AccessPosition += aDirection * (float)someTime.ElapsedGameTime.TotalSeconds * AccessSpeed;
         }
     }
 }

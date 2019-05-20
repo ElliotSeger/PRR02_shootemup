@@ -93,7 +93,7 @@ namespace ShootEmUp.Objects.Creatures.Player
             if (AcccessHealth <= 0)
             {
                 Game1.myObjects.Remove(this);
-                
+                (Game1.myObjects.Where(x => x is DeathUI).First() as DeathUI).ShowDeathScreen("You died!");
             }
 
             myPreviousKeyboardState = tempKeyboardState;
