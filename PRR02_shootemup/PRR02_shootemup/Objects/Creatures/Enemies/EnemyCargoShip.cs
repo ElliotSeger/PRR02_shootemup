@@ -15,5 +15,10 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         {
 
         }
+
+        public override void Update(GameTime someTime)
+        {
+            Move(someTime, Vector2.UnitY);
+        }
     }
 }

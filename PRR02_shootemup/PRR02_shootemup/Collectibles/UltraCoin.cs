@@ -22,6 +22,7 @@ namespace ShootEmUp.Collectibles
         {
             Game1.myObjects.Remove(this);
             (Game1.myObjects.Where(x => x is CoinUI).First() as CoinUI).AddCoins(5);
+            (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(500);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace ShootEmUp.Objects.Creatures
     public class EnemyShipAlpha : BaseEnemy
     {
         public EnemyShipAlpha() :
-            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(50, 50, 64, 48), 10)
+            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(50, -100, 64, 48), 10)
         {
             AccessSpeed = 100;
         }
@@ -48,11 +48,8 @@ namespace ShootEmUp.Objects.Creatures
                 Game1.myObjects.Remove(this);
                 (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(100);
             }
-        }
 
-        public void Move(GameTime someTime, Vector2 aDirection)
-        {
-            AccessPosition += aDirection * (float)someTime.ElapsedGameTime.TotalSeconds * AccessSpeed;
+            Move(someTime, Vector2.UnitY);
         }
     }
 }

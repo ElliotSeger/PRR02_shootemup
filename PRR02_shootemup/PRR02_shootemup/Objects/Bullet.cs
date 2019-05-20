@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Input;
 using ShootEmUp.Objects.Creatures;
 using ShootEmUp.PowerUps;
 using ShootEmUp.Objects.Creatures.Enemies;
+using ShootEmUp.Collectibles;
 
 namespace ShootEmUp.Objects
 {
@@ -56,6 +57,11 @@ namespace ShootEmUp.Objects
                     }
 
                     if (tempCurrentObject is PowerUp)
+                    {
+                        continue;
+                    }
+
+                    if (tempCurrentObject is Collectible)
                     {
                         continue;
                     }

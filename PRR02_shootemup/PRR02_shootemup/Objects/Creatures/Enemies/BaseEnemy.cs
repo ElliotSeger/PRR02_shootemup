@@ -19,5 +19,10 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         public override void Update(GameTime someTime)
         {
         }
+
+        public void Move(GameTime someTime, Vector2 aDirection)
+        {
+            AccessPosition += aDirection * (float)someTime.ElapsedGameTime.TotalSeconds * AccessSpeed;
+        }
     }
 }

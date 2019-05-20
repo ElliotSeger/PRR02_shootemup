@@ -43,6 +43,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Background.cs" />
     <Compile Include="Collectibles\Coin.cs" />
     <Compile Include="Collectibles\Collectible.cs" />
     <Compile Include="Collectibles\UltraCoin.cs" />
@@ -142,6 +143,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Objects\Levels\" />
     <Folder Include="Objects\Upgrades\AbilityUpgrades\" />
     <Folder Include="Objects\Upgrades\BulletUpgrades\" />
     <Folder Include="Objects\Upgrades\HealthUpgrades\" />

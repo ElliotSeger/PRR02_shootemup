@@ -55,9 +55,6 @@ namespace ShootEmUp.Objects.Creatures.Enemies
             }
         }
 
-        public void Move(GameTime someTime, Vector2 aDirection)
-        {
-            AccessPosition += aDirection * (float)someTime.ElapsedGameTime.TotalSeconds * AccessSpeed;
-        }
+        
     }
 }

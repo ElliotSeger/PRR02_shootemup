@@ -51,6 +51,8 @@ namespace ShootEmUp
 
             myObjects = new List<GameObject>
             {
+                new Background(),
+
                 new Player(),
                 
                 new ScoreUI(),
@@ -66,8 +68,10 @@ namespace ShootEmUp
             myObjects.Add(new HealthUI());
             myEnemySpawner = new EnemySpawner(
                 (5, new EnemyShipAlpha()),
+                (0, new EnemyShipBeta()),
                 (5, new EnemyShipAlpha())
                 );
+
         }
 
         /// <summary>
