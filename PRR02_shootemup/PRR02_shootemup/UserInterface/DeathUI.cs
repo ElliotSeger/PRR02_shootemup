@@ -29,7 +29,7 @@ namespace ShootEmUp.UserInterface
 
         public override void Draw(GameTime someTime, SpriteBatch aSpriteBatch)
         {
-            aSpriteBatch.DrawString(myFont, "", new Vector2(500, 500), Color.White);
+            aSpriteBatch.DrawString(myFont, "You died!", new Vector2(900, 500), Color.White);
         }
     }
 }

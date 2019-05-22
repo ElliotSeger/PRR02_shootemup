@@ -71,6 +71,12 @@ namespace ShootEmUp.Objects.Creatures.Player
                 Game1.myObjects.Add(new Bullet(new Vector2((float)Math.Cos(AccessRotation), (float)Math.Sin(AccessRotation)), AccessRectangle.Location.ToVector2(), myDamage, 15, this));
             }
 
+            if (aKeyboardState.IsKeyDown(Keys.LeftShift) && myElapsedTime >= 1f)
+            {
+                myElapsedTime = 0;
+                Game1.myObjects.Add(new Missile(new Vector2((float)Math.Cos(AccessRotation), (float)Math.Sin(AccessRotation)), AccessRectangle.Location.ToVector2(), myDamage, 7.5f, this));
+            }
+
             // Låter skeppet rotera åt vänster håll med vänsterpilen.
 
             if (StartedPress(Keys.Left, tempKeyboardState))

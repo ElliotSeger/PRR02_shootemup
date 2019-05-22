@@ -18,6 +18,9 @@ namespace ShootEmUp.Objects.Creatures.Enemies
 
         float myElapsedTime = 0;
         float myDamage = 25;
+        int myDirectionCount = 3;
+        float myTotalShootingAngle = 1;
+        float myCenterAngle = MathHelper.PiOver2;
 
         public override void Update(GameTime someTime)
         {
@@ -40,7 +43,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
             {
                 myElapsedTime = 0;
                 Game1.myObjects.Add(new Bullet(tempTargetDirection, AccessRectangle.Location.ToVector2(), myDamage, 30, this));
-                
+                // Shoot();
             }
 
             if (AcccessHealth <= 0)
@@ -49,5 +52,17 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(1000);
             }
         }
+
+        //private void Shoot()
+        //{
+        //    float tempAnglePerShot = myTotalShootingAngle / (myDirectionCount - 1);
+
+        //    for (int i = 0; i < myDirectionCount; ++i)
+        //    {
+        //        float tempAngle = tempAnglePerShot * i + myCenterAngle - myTotalShootingAngle * 0.5f;
+        //        Vector2 tempDirection = new Vector2((float)Math.Cos(tempAngle), (float)Math.Sin(tempAngle));
+        //        Game1.myObjects.Add(new Bullet(tempDirection, AccessRectangle.Location.ToVector2(), myDamage, 12, this));
+        //    }
+        //}
     }
 }

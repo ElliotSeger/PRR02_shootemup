@@ -53,7 +53,6 @@
     <Compile Include="Libraries\MusicLibrary.cs" />
     <Compile Include="Libraries\TextureLibrary.cs" />
     <Compile Include="Objects\Bullet.cs" />
-    <Compile Include="Objects\Camera.cs" />
     <Compile Include="Objects\Creatures\Creature.cs" />
     <Compile Include="Objects\Creatures\Enemies\BaseEnemy.cs" />
     <Compile Include="Objects\Creatures\Enemies\EnemyBoss1.cs" />
@@ -64,6 +63,7 @@
     <Compile Include="Objects\Creatures\Enemies\EnemySpawner.cs" />
     <Compile Include="Objects\Creatures\Player\Player.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="Objects\Missile.cs" />
     <Compile Include="Objects\PowerUps\HealthPowerUp.cs" />
     <Compile Include="Objects\PowerUps\PowerUp.cs" />
     <Compile Include="Objects\PowerUps\ShieldPowerUp.cs" />

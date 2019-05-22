@@ -20,9 +20,7 @@ namespace ShootEmUp.Objects.Creatures
 
         float myElapsedTime = 0;
         float myDamage = 10;
-        int myDirectionCount = 3;
-        float myTotalShootingAngle = 1;
-        float myCenterAngle = MathHelper.PiOver2;
+        
 
         public override void Update(GameTime someTime)
         {
@@ -53,11 +51,6 @@ namespace ShootEmUp.Objects.Creatures
             }
 
             Move(someTime, Vector2.UnitY);
-        }
-
-        private void Shoot()
-        {
-
         }
     }
 }
