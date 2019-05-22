@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace ShootEmUp.UserInterface
 {
-    class CoinUI : GameObject
+    class MoneyUI : GameObject
     {
         SpriteFont myFont;
         int myCoins;
 
-        public CoinUI() :
+        public MoneyUI() :
             base(null, new Rectangle())
         {
             myFont = FontLibrary.GetFont("Font");
@@ -29,7 +29,7 @@ namespace ShootEmUp.UserInterface
 
         public override void Draw(GameTime someTime, SpriteBatch aSpriteBatch)
         {
-            aSpriteBatch.DrawString(myFont, $"Coins {myCoins}", new Vector2(50, 100), Color.White);
+            aSpriteBatch.DrawString(myFont, $"Money {myCoins}", new Vector2(50, 100), Color.White);
         }
     }
 }

@@ -54,7 +54,5 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 Game1.myObjects.Add(new Bullet(tempDirection, AccessRectangle.Location.ToVector2(), myDamage, 12, this));
             }
         }
-
-        
     }
 }

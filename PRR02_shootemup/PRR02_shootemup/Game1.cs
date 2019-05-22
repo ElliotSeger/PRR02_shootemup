@@ -30,9 +30,11 @@ namespace ShootEmUp
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 1024;
+            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = 1080;
             graphics.ApplyChanges();
+            graphics.IsFullScreen = false;
+
 
             IsMouseVisible = true;
         }
@@ -59,17 +61,14 @@ namespace ShootEmUp
                 // new HealthPowerUp(),
                 // new SpeedPowerUp(),
                 //new EnemyCargoShip(),
-                new EnemyShipBeta(),
                 new Coin(),
                 new DeathUI(),
-                new CoinUI(),
+                new MoneyUI(),
                 new UltraCoin(),
             };
             myObjects.Add(new HealthUI());
             myEnemySpawner = new EnemySpawner(
-                (5, new EnemyShipAlpha()),
-                (0, new EnemyShipBeta()),
-                (5, new EnemyShipAlpha())
+                (5, new EnemyBoss1())
                 );
 
         }

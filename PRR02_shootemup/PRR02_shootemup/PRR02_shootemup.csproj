@@ -56,6 +56,7 @@
     <Compile Include="Objects\Camera.cs" />
     <Compile Include="Objects\Creatures\Creature.cs" />
     <Compile Include="Objects\Creatures\Enemies\BaseEnemy.cs" />
+    <Compile Include="Objects\Creatures\Enemies\EnemyBoss1.cs" />
     <Compile Include="Objects\Creatures\Enemies\EnemyCargoShip.cs" />
     <Compile Include="Objects\Creatures\Enemies\EnemyShipAlpha.cs" />
     <Compile Include="Objects\Creatures\Enemies\EnemyShipBeta.cs" />
@@ -67,12 +68,10 @@
     <Compile Include="Objects\PowerUps\PowerUp.cs" />
     <Compile Include="Objects\PowerUps\ShieldPowerUp.cs" />
     <Compile Include="Objects\PowerUps\SpeedPowerUp.cs" />
-    <Compile Include="Objects\Store\Store.cs" />
     <Compile Include="Objects\Upgrades\Upgrade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScrollingBackground.cs" />
-    <Compile Include="UserInterface\CoinUI.cs" />
+    <Compile Include="UserInterface\MoneyUI.cs" />
     <Compile Include="UserInterface\DeathUI.cs" />
     <Compile Include="UserInterface\MainMenu.cs" />
     <Compile Include="UserInterface\ScoreUI.cs" />

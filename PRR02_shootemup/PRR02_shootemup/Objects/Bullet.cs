@@ -17,7 +17,7 @@ namespace ShootEmUp.Objects
 {
     class Bullet : GameObject
     {
-        float myMaxDistance = 1750;
+        float myMaxDistance = 2000;
         float myTraveledDistance = 0;
         float myDamage;
         Vector2 myDirection;
@@ -69,7 +69,7 @@ namespace ShootEmUp.Objects
                 }
             }
 
-            // Förstör kulan efter 1750 längdenheter.
+            // Förstör kulan efter 2000 längdenheter.
 
             if (myTraveledDistance > myMaxDistance)
             {
