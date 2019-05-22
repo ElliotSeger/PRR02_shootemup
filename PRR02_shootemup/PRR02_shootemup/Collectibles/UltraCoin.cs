@@ -13,7 +13,7 @@ namespace ShootEmUp.Collectibles
     class UltraCoin : Collectible
     {
         public UltraCoin() :
-            base(TextureLibrary.GetTexture("Coin"), new Rectangle(750, 300, 40, 40))
+            base(TextureLibrary.GetTexture("UltraCoin"), new Rectangle(750, 300, 40, 40))
         {
 
         }

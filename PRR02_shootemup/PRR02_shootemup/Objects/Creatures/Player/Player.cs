@@ -21,7 +21,7 @@ namespace ShootEmUp.Objects.Creatures.Player
         KeyboardState myPreviousKeyboardState;
 
         public Player() :
-            base(TextureLibrary.GetTexture("Ship"), new Rectangle(750, 750, 100, 100), 100)
+            base(TextureLibrary.GetTexture("Ship"), new Rectangle(750, 750, 100, 100), 1000)
         {
             mySpeed = 350;
         }

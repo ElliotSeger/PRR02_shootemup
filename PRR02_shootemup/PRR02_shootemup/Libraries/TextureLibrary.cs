@@ -30,6 +30,7 @@ namespace ShootEmUp.Libraries
                 ["HealthPowerUp"] = someContent.Load<Texture2D>("powerup_health"),
                 ["SpeedPowerUp"] = someContent.Load<Texture2D>("powerup_speed"),
                 ["Coin"] = someContent.Load<Texture2D>("coin"),
+                ["UltraCoin"] = someContent.Load<Texture2D>("ultraCoin"),
                 ["Orb"] = someContent.Load<Texture2D>("orb"),
                 ["SpaceBackground"] = someContent.Load<Texture2D>("space"),
                 ["Missile"] = someContent.Load<Texture2D>("missile"),

@@ -49,9 +49,9 @@ namespace ShootEmUp.Objects
                         continue;
                     }
 
-                    if (tempCurrentObject is Creature)
+                    if (tempCurrentObject is BaseEnemy)
                     {
-                        (tempCurrentObject as Creature).TakeDamage(25);
+                        (tempCurrentObject as BaseEnemy).TakeDamage(25);
                     }
 
                     if (tempCurrentObject is PowerUp)

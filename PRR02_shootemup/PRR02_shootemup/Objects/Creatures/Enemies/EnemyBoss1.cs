@@ -11,7 +11,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
     class EnemyBoss1 : BaseEnemy
     {
         public EnemyBoss1() :
-            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(100, 100, 64, 48), 100)
+            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(100, 100, 128, 96), 125)
         {
             AccessSpeed = 200;
         }
