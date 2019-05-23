@@ -21,10 +21,7 @@ namespace ShootEmUp.Libraries
         {
             myMusic = new Dictionary<string, Song>
             {
-                ["Player"] = someContent.Load<Song>("ship"),
-                ["Enemy"] = someContent.Load<Song>("enemy"),
-                ["Bullet"] = someContent.Load<Song>("bullet"),
-                ["HealthPowerUp"] = someContent.Load<Song>("powerup_health"),
+                
             };
         }
     }

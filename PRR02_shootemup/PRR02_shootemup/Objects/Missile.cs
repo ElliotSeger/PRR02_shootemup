@@ -20,14 +20,16 @@ namespace ShootEmUp.Objects
         Vector2 myDirection;
         GameObject myShooter;
         float mySpeed;
+        BaseEnemy myTarget;
 
         public Missile(Vector2 aDirection, Vector2 aPosition, float aDamage, float aSpeed, GameObject aShooter) :
-            base(TextureLibrary.GetTexture("Missile"), new Rectangle(aPosition.ToPoint(), new Point(50, 50)))
+            base(TextureLibrary.GetTexture("Missile"), new Rectangle(aPosition.ToPoint(), new Point(100, 100)))
         {
             myDirection = aDirection;
             myDamage = aDamage;
             myShooter = aShooter;
             mySpeed = aSpeed;
+            myTarget = (BaseEnemy)Game1.myObjects.Where(x => x is BaseEnemy).FirstOrDefault();
         }
 
         public override void Update(GameTime someTime)
@@ -37,6 +39,15 @@ namespace ShootEmUp.Objects
             tempRectangle.Location += tempTravelTransformation;
             AccessRectangle = tempRectangle;
             myTraveledDistance += tempTravelTransformation.ToVector2().Length();
+
+            if (myTarget != null)
+            {
+                Vector2 tempTargetDirection = Vector2.Normalize(myTarget.AccessRectangle.Location.ToVector2() - AccessRectangle.Location.ToVector2());
+                float tempLerpAmount = 0.1f;
+                myDirection = new Vector2(MathHelper.Lerp(myDirection.X, tempTargetDirection.X, tempLerpAmount), MathHelper.Lerp(myDirection.Y, tempTargetDirection.Y, tempLerpAmount));
+            }
+
+            AccessRotation = (float)Math.Atan2(myDirection.Y, myDirection.X);
 
             for (int i = Game1.myObjects.Count - 1; i >= 0; --i)
             {
@@ -61,12 +72,12 @@ namespace ShootEmUp.Objects
 
                     if (tempCurrentObject is Collectible)
                     {
-                        continue;
+                        continue; // Ignorerar 
                     }
 
                     if (tempCurrentObject is Bullet)
                     {
-                        continue;
+                        continue; // Ignorerar kulor.
                     }
                     Game1.myObjects.Remove(this);
                 }

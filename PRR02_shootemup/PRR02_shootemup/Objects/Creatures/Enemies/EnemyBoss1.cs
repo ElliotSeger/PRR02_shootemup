@@ -11,7 +11,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
     class EnemyBoss1 : BaseEnemy
     {
         public EnemyBoss1() :
-            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(100, 100, 128, 96), 125)
+            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(100, 100, 128, 96), 125, 1000)
         {
             AccessSpeed = 200;
         }
@@ -43,26 +43,9 @@ namespace ShootEmUp.Objects.Creatures.Enemies
             {
                 myElapsedTime = 0;
                 Game1.myObjects.Add(new Bullet(tempTargetDirection, AccessRectangle.Location.ToVector2(), myDamage, 30, this));
-                // Shoot();
             }
 
-            if (AcccessHealth <= 0)
-            {
-                Game1.myObjects.Remove(this);
-                (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(1000);
-            }
+            base.Update(someTime);
         }
-
-        //private void Shoot()
-        //{
-        //    float tempAnglePerShot = myTotalShootingAngle / (myDirectionCount - 1);
-
-        //    for (int i = 0; i < myDirectionCount; ++i)
-        //    {
-        //        float tempAngle = tempAnglePerShot * i + myCenterAngle - myTotalShootingAngle * 0.5f;
-        //        Vector2 tempDirection = new Vector2((float)Math.Cos(tempAngle), (float)Math.Sin(tempAngle));
-        //        Game1.myObjects.Add(new Bullet(tempDirection, AccessRectangle.Location.ToVector2(), myDamage, 12, this));
-        //    }
-        //}
     }
 }

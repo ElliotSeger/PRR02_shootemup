@@ -20,11 +20,13 @@ namespace ShootEmUp.Objects.PowerUps
 
         protected override void OnPickup(Player aShip)
         {
-            if (myHealth <= myMaxHealth)
-            {
-                aShip.GiveHealth(10);
-                Game1.myObjects.Remove(this);
-            }
+            //if (myHealth <= myMaxHealth)
+            //{
+            //    aShip.GiveHealth(10);
+            //    Game1.myObjects.Remove(this);
+            //}
+            aShip.GiveHealth(10);
+            Game1.myObjects.Remove(this);
         }
     }
 }

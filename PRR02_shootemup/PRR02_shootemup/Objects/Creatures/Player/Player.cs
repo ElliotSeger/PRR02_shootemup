@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
 using ShootEmUp.UserInterface;
+using ShootEmUp.Objects.Creatures.Enemies;
 
 namespace ShootEmUp.Objects.Creatures.Player
 {
@@ -21,7 +22,7 @@ namespace ShootEmUp.Objects.Creatures.Player
         KeyboardState myPreviousKeyboardState;
 
         public Player() :
-            base(TextureLibrary.GetTexture("Ship"), new Rectangle(750, 750, 100, 100), 1000)
+            base(TextureLibrary.GetTexture("Ship"), new Rectangle(750, 750, 100, 100), 10000)
         {
             mySpeed = 350;
         }
@@ -65,11 +66,15 @@ namespace ShootEmUp.Objects.Creatures.Player
                 AccessPosition += myMoveDirection * mySpeed * tempDeltaTime;
             }
 
+            // Låter skeppet skjuta kulor med Blanksteg.
+
             if (aKeyboardState.IsKeyDown(Keys.Space) && myElapsedTime >= 0.4f)
             {
                 myElapsedTime = 0;
                 Game1.myObjects.Add(new Bullet(new Vector2((float)Math.Cos(AccessRotation), (float)Math.Sin(AccessRotation)), AccessRectangle.Location.ToVector2(), myDamage, 15, this));
             }
+
+            // Låter skeppet skjuta missiler med Vänster-skifttangent.
 
             if (aKeyboardState.IsKeyDown(Keys.LeftShift) && myElapsedTime >= 1f)
             {
@@ -99,7 +104,7 @@ namespace ShootEmUp.Objects.Creatures.Player
             if (AcccessHealth <= 0)
             {
                 Game1.myObjects.Remove(this);
-                (Game1.myObjects.Where(x => x is DeathUI).First() as DeathUI).ShowDeathScreen("You died!");
+                (Game1.myObjects.Where(x => x is DeathUI).First() as DeathUI).ShowDeathScreen();
             }
 
             myPreviousKeyboardState = tempKeyboardState;

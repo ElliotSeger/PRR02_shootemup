@@ -11,7 +11,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
     class EnemyShipBeta : BaseEnemy
     {
         public EnemyShipBeta() :
-            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(500, 200, 64, 48), 10)
+            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(500, 200, 64, 48), 10, 75)
         {
             AccessSpeed = 100;
         }
@@ -34,11 +34,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 Shoot();
             }
 
-            if (AcccessHealth <= 0)
-            {
-                Game1.myObjects.Remove(this);
-                (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(75);
-            }
+            base.Update(someTime);
 
             Move(someTime, Vector2.UnitY);
         }

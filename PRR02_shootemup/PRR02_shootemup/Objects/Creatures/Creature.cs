@@ -33,5 +33,13 @@ namespace ShootEmUp.Objects.Creatures
         {
             AccessSpeed += someSpeed;
         }
+
+        public override void Update(GameTime someTime)
+        {
+            if (AcccessHealth <= 0)
+            {
+                Game1.myObjects.Remove(this);
+            }
+        }
     }
 }

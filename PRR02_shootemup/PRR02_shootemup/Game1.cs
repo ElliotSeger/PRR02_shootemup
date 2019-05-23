@@ -68,7 +68,22 @@ namespace ShootEmUp
             };
             myObjects.Add(new HealthUI());
             myEnemySpawner = new EnemySpawner(
-                (5, new EnemyBoss1())
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha()),
+                (3, new EnemyShipAlpha())
                 );
 
         }

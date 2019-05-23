@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using ShootEmUp.Libraries;
 using ShootEmUp.Objects;
 using ShootEmUp.Objects.Creatures.Player;
@@ -15,6 +16,8 @@ namespace ShootEmUp.UserInterface
     {
         SpriteFont myFont;
         string myDeathScreen;
+        bool isPlayerDead = false;
+        KeyboardState myPreviousKeyboardState;
 
         public DeathUI() :
             base(null, new Rectangle())
@@ -22,14 +25,42 @@ namespace ShootEmUp.UserInterface
             myFont = FontLibrary.GetFont("Font");
         }
 
-        public void ShowDeathScreen(string aDeathScreen)
+        public void ShowDeathScreen()
         {
-            myDeathScreen += aDeathScreen;
+            myDeathScreen = "You died!\nPress R to restart\nPress escape to exit";
+            isPlayerDead = true;
+        }
+
+        public void Update()
+        {
+            KeyboardState tempKeyboardState = Keyboard.GetState();
+            if (isPlayerDead)
+            {
+                if (StartedPress(Keys.R, tempKeyboardState))
+                {
+
+                }
+
+                if (StartedPress(Keys.Escape, tempKeyboardState))
+                {
+
+                }
+            }
+
         }
 
         public override void Draw(GameTime someTime, SpriteBatch aSpriteBatch)
         {
-            aSpriteBatch.DrawString(myFont, "You died!", new Vector2(900, 500), Color.White);
+            if (myDeathScreen == null)
+            {
+                return;
+            }
+            aSpriteBatch.DrawString(myFont, myDeathScreen, new Vector2(900, 500), Color.White, 0, Vector2.Zero, 2, SpriteEffects.None, 1);
+        }
+
+        private bool StartedPress(Keys aKey, KeyboardState aCurrentKeyboardState)
+        {
+            return (aCurrentKeyboardState.IsKeyDown(aKey) && !myPreviousKeyboardState.IsKeyDown(aKey));
         }
     }
 }
