@@ -17,7 +17,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         int myScore;
 
         public BaseEnemy(Texture2D aTexture, Rectangle aRectangle, float aHealth = 0, int aScore = 0) :
-            base(aTexture, aRectangle, aHealth)
+            base(aTexture, aRectangle, aHealth, aPosition)
         {
             myScore = aScore;
         }

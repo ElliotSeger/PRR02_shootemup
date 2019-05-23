@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ShootEmUp.Collectibles;
 using ShootEmUp.Libraries;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,8 @@ namespace ShootEmUp.UserInterface
 
             if (StartedPress(Keys.K, tempKeyboardState))
             {
-                Game1.AccessPlayer.AccessSpeed = 1000;
+                Game1.myIsShowingUpgradeMenu = false;
+                Game1.AccessPlayer.AcccessHealth = 200;
             }
 
             if (StartedPress(Keys.L, tempKeyboardState))
