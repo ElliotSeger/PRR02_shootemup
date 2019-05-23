@@ -12,15 +12,15 @@ namespace ShootEmUp.Objects.PowerUps
 {
     class SpeedPowerUp : PowerUp
     {
-        public SpeedPowerUp() :
-            base(TextureLibrary.GetTexture("SpeedPowerUp"), new Rectangle(400, 400, 100, 100))
+        public SpeedPowerUp(Point aPosition) :
+            base(TextureLibrary.GetTexture("SpeedPowerUp"), new Rectangle(aPosition.X, aPosition.Y, 100, 100))
         {
 
         }
 
         protected override void OnPickup(Player aShip)
         {
-            aShip.GiveSpeed(1000);
+            
             Game1.myObjects.Remove(this);
         }
     }

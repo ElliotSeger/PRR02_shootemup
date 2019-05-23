@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace ShootEmUp.Collectibles
 {
-    class Coin : Collectible
+    class GoldCoin : Collectible
     {
-        public Coin(Point aPosition) :
+        public GoldCoin(Point aPosition) :
             base(TextureLibrary.GetTexture("Coin"), new Rectangle(aPosition.X, aPosition.Y, 40, 40))
         {
 

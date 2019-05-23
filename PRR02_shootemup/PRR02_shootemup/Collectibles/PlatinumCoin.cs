@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace ShootEmUp.Collectibles
 {
-    class UltraCoin : Collectible
+    class PlatinumCoin : Collectible
     {
-        public UltraCoin() :
-            base(TextureLibrary.GetTexture("UltraCoin"), new Rectangle(750, 300, 40, 40))
+        public PlatinumCoin(Point aPosition) :
+            base(TextureLibrary.GetTexture("UltraCoin"), new Rectangle(aPosition.X, aPosition.Y, 40, 40))
         {
 
         }

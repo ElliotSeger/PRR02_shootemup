@@ -17,7 +17,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         int myScore;
 
         public BaseEnemy(Texture2D aTexture, Rectangle aRectangle, float aHealth = 0, int aScore = 0) :
-            base(aTexture, aRectangle, aHealth, aPosition)
+            base(aTexture, aRectangle, aHealth)
         {
             myScore = aScore;
         }
@@ -26,25 +26,26 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         {
             if (AcccessHealth <= 0)
             {
-                Game1.myObjects.Remove(this);
-                (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(myScore);
-
                 double tempValue = myRandom.NextDouble();
 
-                if (tempValue < 0.4) // 40 % chans.
+                if (tempValue < 0.4) // 40 % chans att en fiende släpper ett guldmynt.
                 {
-                    Game1.myObjects.Add(new Coin(AccessPosition.ToPoint()));
+                    Game1.myObjects.Add(new GoldCoin(AccessPosition.ToPoint()));
                 }
 
-                else if (tempValue < 0.6) // 20 % chans.
+                else if (tempValue < 0.6) // 20 % chans att en fiende släpper en hälso-powerup.
                 {
                     Game1.myObjects.Add(new HealthPowerUp(AccessPosition.ToPoint()));
                 }
 
-                else if (tempValue < 0.65) // 5 % chans.
+                else if (tempValue < 0.70) // 10 % chans att en fiende släpper ett platinamynt.
                 {
-                    Game1.myObjects.Add(new UltraCoin());
+                    Game1.myObjects.Add(new PlatinumCoin(AccessPosition.ToPoint()));
                 }
+
+                Game1.myObjects.Remove(this);
+                (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(myScore);
+                
             }
         }
 

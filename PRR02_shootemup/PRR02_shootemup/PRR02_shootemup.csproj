@@ -44,9 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Background.cs" />
-    <Compile Include="Collectibles\Coin.cs" />
+    <Compile Include="Collectibles\GoldCoin.cs" />
     <Compile Include="Collectibles\Collectible.cs" />
-    <Compile Include="Collectibles\UltraCoin.cs" />
+    <Compile Include="Collectibles\PlatinumCoin.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameStates\GameState.cs" />
     <Compile Include="Libraries\FontLibrary.cs" />
@@ -56,6 +56,7 @@
     <Compile Include="Objects\Creatures\Creature.cs" />
     <Compile Include="Objects\Creatures\Enemies\BaseEnemy.cs" />
     <Compile Include="Objects\Creatures\Enemies\EnemyBoss1.cs" />
+    <Compile Include="Objects\Creatures\Enemies\EnemyBoss2.cs" />
     <Compile Include="Objects\Creatures\Enemies\EnemyBossMinion.cs" />
     <Compile Include="Objects\Creatures\Enemies\EnemyCargoShip.cs" />
     <Compile Include="Objects\Creatures\Enemies\EnemyShipAlpha.cs" />

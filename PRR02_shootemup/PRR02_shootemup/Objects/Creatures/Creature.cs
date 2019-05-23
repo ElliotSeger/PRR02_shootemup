@@ -13,7 +13,7 @@ namespace ShootEmUp.Objects.Creatures
         public float AcccessHealth { get; set; }
         public float AccessSpeed { get; set; }
 
-        public Creature(Texture2D aTexture, Rectangle aRectangle, float aHealth, Point aPosition, float aRotation = 0) :
+        public Creature(Texture2D aTexture, Rectangle aRectangle, float aHealth, float aRotation = 0) :
             base(aTexture, aRectangle, aRotation)
         {
             AcccessHealth = aHealth;
