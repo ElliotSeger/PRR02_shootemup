@@ -23,7 +23,11 @@ namespace ShootEmUp
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public static List<GameObject> myObjects;
-        EnemySpawner myEnemySpawner;
+        static EnemySpawner[] myLevelSpawners;
+        static int myCurrentLevelIndex = 0;
+        public static bool myIsShowingUpgradeMenu = false;
+        public static Player AccessPlayer { get; set; }
+        UpgradeMenu myUpgradeMenu;
 
         public Game1()
         {
@@ -51,41 +55,97 @@ namespace ShootEmUp
 
             base.Initialize();
 
+            myLevelSpawners = new[]
+            {
+                new EnemySpawner(
+                (3, new EnemyBoss1()),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100)))
+                )
+
+                , 
+                new EnemySpawner() // Bygg din nivå.
+            };
+
+            AccessPlayer = new Player();
+            myUpgradeMenu = new UpgradeMenu();
+
             myObjects = new List<GameObject>
             {
                 new Background(),
-
-                new Player(),
-                
+                AccessPlayer,
                 new ScoreUI(),
-                // new HealthPowerUp(),
-                // new SpeedPowerUp(),
-                //new EnemyCargoShip(),
-                new Coin(),
                 new DeathUI(),
                 new MoneyUI(),
-                new UltraCoin(),
             };
             myObjects.Add(new HealthUI());
-            myEnemySpawner = new EnemySpawner(
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha()),
-                (3, new EnemyShipAlpha())
-                );
 
+        }
+
+        public static void NextLevel()
+        {
+            ++myCurrentLevelIndex;
+            if (myCurrentLevelIndex >= myLevelSpawners.Length)
+            {
+                myCurrentLevelIndex = 0;
+            }
+
+            Restart();
+        }
+
+        public static void Restart()
+        {
+            myObjects = new List<GameObject>
+            {
+                new Background(),
+                AccessPlayer,
+                new ScoreUI(),
+                new DeathUI(),
+                new MoneyUI(),
+            };
+            myObjects.Add(new HealthUI());
+
+            AccessPlayer.AcccessHealth = Player.myMaxHealth;
+
+            myLevelSpawners = new[]
+            {
+                new EnemySpawner(
+                (3, new EnemyBoss1()),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100))),
+                (3, new EnemyShipAlpha(new Point(50, -100)))
+                )
+
+                ,
+                new EnemySpawner() // Bygg din nivå.
+            };
         }
 
         /// <summary>
@@ -118,19 +178,24 @@ namespace ShootEmUp
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            for (int i = 0; i < myObjects.Count; ++i)
+            if (!myIsShowingUpgradeMenu)
             {
-                myObjects[i].Update(gameTime);
+                for (int i = 0; i < myObjects.Count; ++i)
+                {
+                    myObjects[i].Update(gameTime);
+                }
+
+                myLevelSpawners[myCurrentLevelIndex].Update(gameTime);
+
+                // TODO: Add your update logic here
+
+                base.Update(gameTime);
             }
 
-            myEnemySpawner.Update(gameTime);
-
-            // TODO: Add your update logic here
-
-            base.Update(gameTime);
+            else
+            {
+                myUpgradeMenu.Update(gameTime);
+            }
         }
 
         /// <summary>
@@ -146,9 +211,18 @@ namespace ShootEmUp
             base.Draw(gameTime);
 
             spriteBatch.Begin();
-            foreach (GameObject gameObject in myObjects)
+
+            if (!myIsShowingUpgradeMenu)
             {
-                gameObject.Draw(gameTime, spriteBatch);
+                foreach (GameObject gameObject in myObjects)
+                {
+                    gameObject.Draw(gameTime, spriteBatch);
+                }
+            }
+
+            else
+            {
+                myUpgradeMenu.Draw(spriteBatch);
             }
 
             spriteBatch.End();

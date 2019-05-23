@@ -15,7 +15,7 @@ namespace ShootEmUp.UserInterface
     class DeathUI : GameObject
     {
         SpriteFont myFont;
-        string myDeathScreen;
+        string myDeathScreenText;
         bool isPlayerDead = false;
         KeyboardState myPreviousKeyboardState;
 
@@ -27,35 +27,35 @@ namespace ShootEmUp.UserInterface
 
         public void ShowDeathScreen()
         {
-            myDeathScreen = "You died!\nPress R to restart\nPress escape to exit";
+            myDeathScreenText = "You died!\nPress R to restart\nPress escape to exit";
             isPlayerDead = true;
         }
 
-        public void Update()
+        public override void Update(GameTime someTime)
         {
             KeyboardState tempKeyboardState = Keyboard.GetState();
             if (isPlayerDead)
             {
                 if (StartedPress(Keys.R, tempKeyboardState))
                 {
-
+                    Game1.Restart();
                 }
 
                 if (StartedPress(Keys.Escape, tempKeyboardState))
                 {
-
+                    Environment.Exit(0);
                 }
             }
-
+            myPreviousKeyboardState = tempKeyboardState;
         }
 
         public override void Draw(GameTime someTime, SpriteBatch aSpriteBatch)
         {
-            if (myDeathScreen == null)
+            if (myDeathScreenText == null)
             {
                 return;
             }
-            aSpriteBatch.DrawString(myFont, myDeathScreen, new Vector2(900, 500), Color.White, 0, Vector2.Zero, 2, SpriteEffects.None, 1);
+            aSpriteBatch.DrawString(myFont, myDeathScreenText, new Vector2(900, 500), Color.White, 0, Vector2.Zero, 2, SpriteEffects.None, 1);
         }
 
         private bool StartedPress(Keys aKey, KeyboardState aCurrentKeyboardState)

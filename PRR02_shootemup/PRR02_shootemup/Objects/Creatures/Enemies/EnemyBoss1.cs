@@ -17,6 +17,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         }
 
         float myElapsedTime = 0;
+        float myElapsedSpawnTime = 0;
         float myDamage = 25;
         int myDirectionCount = 3;
         float myTotalShootingAngle = 1;
@@ -26,6 +27,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         {
             float tempDeltaTime = (float)someTime.ElapsedGameTime.TotalSeconds;
             myElapsedTime += tempDeltaTime;
+            myElapsedSpawnTime += tempDeltaTime;
 
             IEnumerable<GameObject> tempPlayers = Game1.myObjects.Where(x => x is Player.Player);
             if (tempPlayers.Count() < 1)
@@ -45,7 +47,20 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 Game1.myObjects.Add(new Bullet(tempTargetDirection, AccessRectangle.Location.ToVector2(), myDamage, 30, this));
             }
 
-            base.Update(someTime);
+            if (myElapsedSpawnTime >= 3)
+            {
+                myElapsedSpawnTime = 0;
+                Game1.myObjects.Add(new EnemyBossMinion(AccessPosition.ToPoint()));
+            }
+
+            if (AcccessHealth <= 0)
+            {
+                Game1.myObjects.Remove(this);
+                (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(1000);
+
+                Game1.myIsShowingUpgradeMenu = true;
+                Game1.NextLevel();
+            }
         }
     }
 }

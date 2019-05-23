@@ -12,8 +12,8 @@ namespace ShootEmUp.Objects.Creatures
 {
     public class EnemyShipAlpha : BaseEnemy
     {
-        public EnemyShipAlpha() :
-            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(50, -100, 64, 48), 10, 100)
+        public EnemyShipAlpha(Point aPosition) :
+            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 64, 48), 10, 100)
         {
             AccessSpeed = 100;
         }
@@ -45,8 +45,6 @@ namespace ShootEmUp.Objects.Creatures
             }
 
             base.Update(someTime);
-
-            Move(someTime, Vector2.UnitY);
         }
     }
 }

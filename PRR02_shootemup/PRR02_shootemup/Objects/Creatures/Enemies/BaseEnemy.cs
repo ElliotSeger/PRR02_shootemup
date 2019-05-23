@@ -33,12 +33,12 @@ namespace ShootEmUp.Objects.Creatures.Enemies
 
                 if (tempValue < 0.4) // 40 % chans.
                 {
-                    Game1.myObjects.Add(new Coin());
+                    Game1.myObjects.Add(new Coin(AccessPosition.ToPoint()));
                 }
 
                 else if (tempValue < 0.6) // 20 % chans.
                 {
-                    Game1.myObjects.Add(new HealthPowerUp());
+                    Game1.myObjects.Add(new HealthPowerUp(AccessPosition.ToPoint()));
                 }
 
                 else if (tempValue < 0.65) // 5 % chans.

@@ -12,8 +12,8 @@ namespace ShootEmUp.Objects.PowerUps
 {
     class HealthPowerUp : PowerUp
     {
-        public HealthPowerUp() :
-            base(TextureLibrary.GetTexture("HealthPowerUp"), new Rectangle(500, 500, 100, 100))
+        public HealthPowerUp(Point aPosition) :
+            base(TextureLibrary.GetTexture("HealthPowerUp"), new Rectangle(aPosition.X, aPosition.Y, 100, 100))
         {
 
         }

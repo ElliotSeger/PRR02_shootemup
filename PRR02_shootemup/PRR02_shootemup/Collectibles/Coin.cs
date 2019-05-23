@@ -12,8 +12,8 @@ namespace ShootEmUp.Collectibles
 {
     class Coin : Collectible
     {
-        public Coin() :
-            base(TextureLibrary.GetTexture("Coin"), new Rectangle(750, 100, 40, 40))
+        public Coin(Point aPosition) :
+            base(TextureLibrary.GetTexture("Coin"), new Rectangle(aPosition.X, aPosition.Y, 40, 40))
         {
 
         }

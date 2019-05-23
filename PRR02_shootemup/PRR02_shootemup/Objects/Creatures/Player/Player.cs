@@ -14,17 +14,17 @@ namespace ShootEmUp.Objects.Creatures.Player
 {
     public class Player : Creature
     {
-        float mySpeed;
         float myElapsedTime = 0;
         float myDamage = 0;
         Vector2 myMoveDirection;
         Vector2 myRotationDirection;
         KeyboardState myPreviousKeyboardState;
+        public const int myMaxHealth = 10000;
 
         public Player() :
-            base(TextureLibrary.GetTexture("Ship"), new Rectangle(750, 750, 100, 100), 10000)
+            base(TextureLibrary.GetTexture("Ship"), new Rectangle(750, 750, 100, 100), myMaxHealth)
         {
-            mySpeed = 350;
+            AccessSpeed = 350;
         }
         
         public override void Update(GameTime someTime)
@@ -63,7 +63,7 @@ namespace ShootEmUp.Objects.Creatures.Player
             if (myMoveDirection != Vector2.Zero)
             {
                 myMoveDirection.Normalize();
-                AccessPosition += myMoveDirection * mySpeed * tempDeltaTime;
+                AccessPosition += myMoveDirection * AccessSpeed * tempDeltaTime;
             }
 
             // Låter skeppet skjuta kulor med Blanksteg.
