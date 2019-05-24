@@ -14,7 +14,6 @@ namespace ShootEmUp.UserInterface
     class MoneyUI : GameObject
     {
         SpriteFont myFont;
-        int myCoins;
 
         public MoneyUI() :
             base(null, new Rectangle())
@@ -22,14 +21,14 @@ namespace ShootEmUp.UserInterface
             myFont = FontLibrary.GetFont("Font");
         }
 
-        public void AddCoins(int aCoins)
+        public void AddCoins(int someMoney)
         {
-            myCoins += aCoins;
+            Game1.AccessPlayer.AccessMoney += someMoney;
         }
 
         public override void Draw(GameTime someTime, SpriteBatch aSpriteBatch)
         {
-            aSpriteBatch.DrawString(myFont, $"Money {myCoins}", new Vector2(50, 100), Color.White);
+            aSpriteBatch.DrawString(myFont, $"Money {Game1.AccessPlayer.AccessMoney}", new Vector2(50, 100), Color.White);
         }
     }
 }

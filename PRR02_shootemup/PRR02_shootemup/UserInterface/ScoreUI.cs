@@ -14,7 +14,7 @@ namespace ShootEmUp
     class ScoreUI : GameObject
     {
         SpriteFont myFont;
-        int myScore;
+        
 
         public ScoreUI() :
             base(null, new Rectangle())
@@ -24,12 +24,12 @@ namespace ShootEmUp
 
         public void AddScore(int aScore)
         {
-            myScore += aScore;
+            Game1.AccessPlayer.AccessScore += aScore;
         }
 
         public override void Draw(GameTime someTime, SpriteBatch aSpriteBatch)
         {
-           aSpriteBatch.DrawString(myFont, $"Score {myScore}", new Vector2(50, 50), Color.White);
+           aSpriteBatch.DrawString(myFont, $"Score {Game1.AccessPlayer.AccessScore}", new Vector2(50, 50), Color.White);
         }
     }
 }

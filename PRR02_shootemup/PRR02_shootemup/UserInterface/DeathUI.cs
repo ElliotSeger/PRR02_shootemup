@@ -39,6 +39,7 @@ namespace ShootEmUp.UserInterface
                 if (StartedPress(Keys.R, tempKeyboardState))
                 {
                     Game1.Restart();
+                    Game1.AccessPlayer.AccessMoney = Game1.AccessPlayer.AccessScore = 0;
                 }
 
                 if (StartedPress(Keys.Escape, tempKeyboardState))

@@ -24,7 +24,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
 
         public override void Update(GameTime someTime)
         {
-            if (AcccessHealth <= 0)
+            if (AccessHealth <= 0)
             {
                 double tempValue = myRandom.NextDouble();
 
@@ -38,7 +38,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                     Game1.myObjects.Add(new HealthPowerUp(AccessPosition.ToPoint()));
                 }
 
-                else if (tempValue < 0.70) // 10 % chans att en fiende släpper ett platinamynt.
+                else if (tempValue < 0.7) // 10 % chans att en fiende släpper ett platinamynt.
                 {
                     Game1.myObjects.Add(new PlatinumCoin(AccessPosition.ToPoint()));
                 }

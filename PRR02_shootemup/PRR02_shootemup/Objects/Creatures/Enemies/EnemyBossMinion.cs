@@ -13,9 +13,9 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         float myElapsedTime = 0;
 
         public EnemyBossMinion(Point aPosition) :
-            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 32, 24))
+            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 32, 24), 100, 10)
         {
-
+            AccessSpeed = 100;
         }
 
         public override void Update(GameTime someTime)
@@ -30,7 +30,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 {
                     if (tempCurrentObject is Player.Player player)
                     {
-                        player.AcccessHealth -= (float)someTime.ElapsedGameTime.TotalSeconds * 10; 
+                        player.AccessHealth -= (float)someTime.ElapsedGameTime.TotalSeconds * 10; 
                     }
                 }
             }

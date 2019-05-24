@@ -10,23 +10,23 @@ namespace ShootEmUp.Objects.Creatures
 {
     public class Creature : GameObject
     {
-        public float AcccessHealth { get; set; }
+        public float AccessHealth { get; set; }
         public float AccessSpeed { get; set; }
 
         public Creature(Texture2D aTexture, Rectangle aRectangle, float aHealth, float aRotation = 0) :
             base(aTexture, aRectangle, aRotation)
         {
-            AcccessHealth = aHealth;
+            AccessHealth = aHealth;
         }
 
         public void TakeDamage(float someDamage)
         {
-            AcccessHealth -= someDamage;
+            AccessHealth -= someDamage;
         }
 
         public void GiveHealth(float someHealth)
         {
-            AcccessHealth += someHealth;
+            AccessHealth += someHealth;
         }
 
         public void GiveSpeed(float someSpeed)
@@ -36,7 +36,7 @@ namespace ShootEmUp.Objects.Creatures
 
         public override void Update(GameTime someTime)
         {
-            if (AcccessHealth <= 0)
+            if (AccessHealth <= 0)
             {
                 Game1.myObjects.Remove(this);
             }

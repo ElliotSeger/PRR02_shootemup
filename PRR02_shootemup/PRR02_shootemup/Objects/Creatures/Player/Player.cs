@@ -19,7 +19,9 @@ namespace ShootEmUp.Objects.Creatures.Player
         Vector2 myMoveDirection;
         Vector2 myRotationDirection;
         KeyboardState myPreviousKeyboardState;
-        public const int myMaxHealth = 10000;
+        public const int myMaxHealth = 100;
+        public int AccessScore { get; set; }
+        public int AccessMoney { get; set; }
 
         public Player() :
             base(TextureLibrary.GetTexture("Ship"), new Rectangle(750, 750, 100, 100), myMaxHealth)
@@ -101,7 +103,7 @@ namespace ShootEmUp.Objects.Creatures.Player
 
             // Förstör skeppet när skeppet har noll eller färre hälsopoäng.
 
-            if (AcccessHealth <= 0)
+            if (AccessHealth <= 0)
             {
                 Game1.myObjects.Remove(this);
                 (Game1.myObjects.Where(x => x is DeathUI).First() as DeathUI).ShowDeathScreen();

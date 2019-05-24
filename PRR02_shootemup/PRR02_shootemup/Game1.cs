@@ -58,23 +58,7 @@ namespace ShootEmUp
             myLevelSpawners = new[]
             {
                 new EnemySpawner(
-                (3, new EnemyBoss1()),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100)))
+                
                 )
 
                 , 
@@ -91,6 +75,7 @@ namespace ShootEmUp
                 new ScoreUI(),
                 new DeathUI(),
                 new MoneyUI(),
+                new HealthPowerUp(new Point(50, 50)),
             };
             myObjects.Add(new HealthUI());
 
@@ -116,31 +101,16 @@ namespace ShootEmUp
                 new ScoreUI(),
                 new DeathUI(),
                 new MoneyUI(),
+                new HealthPowerUp(new Point(50, 50)),
             };
             myObjects.Add(new HealthUI());
 
-            AccessPlayer.AcccessHealth = Player.myMaxHealth;
+            AccessPlayer.AccessHealth = Player.myMaxHealth;
 
             myLevelSpawners = new[]
             {
                 new EnemySpawner(
-                (3, new EnemyBoss1()),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100))),
-                (3, new EnemyShipAlpha(new Point(50, -100)))
+                   
                 )
 
                 ,
@@ -204,7 +174,7 @@ namespace ShootEmUp
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
 

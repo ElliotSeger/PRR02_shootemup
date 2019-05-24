@@ -53,7 +53,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 Game1.myObjects.Add(new EnemyBossMinion(AccessPosition.ToPoint()));
             }
 
-            if (AcccessHealth <= 0)
+            if (AccessHealth <= 0)
             {
                 Game1.myObjects.Remove(this);
                 (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(1000);

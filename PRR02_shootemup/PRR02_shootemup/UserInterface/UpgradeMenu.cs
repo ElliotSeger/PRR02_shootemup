@@ -27,10 +27,11 @@ namespace ShootEmUp.UserInterface
         {
             KeyboardState tempKeyboardState = Keyboard.GetState();
 
-            if (StartedPress(Keys.K, tempKeyboardState))
+            if (StartedPress(Keys.K, tempKeyboardState) && Game1.AccessPlayer.AccessMoney >= 5)
             {
                 Game1.myIsShowingUpgradeMenu = false;
-                Game1.AccessPlayer.AcccessHealth = 200;
+                Game1.AccessPlayer.AccessHealth = 200;
+                Game1.AccessPlayer.AccessMoney -= 5;
             }
 
             if (StartedPress(Keys.L, tempKeyboardState))
