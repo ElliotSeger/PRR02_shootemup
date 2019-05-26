@@ -19,7 +19,7 @@ namespace ShootEmUp.UserInterface
 
         public UpgradeMenu()
         {
-            myText = "Press K to buy! \nPress L to next level!";
+            myText = "Press K to upgrade your max health to 200 for 5 coins! \nPress L to next level!";
             myFont = FontLibrary.GetFont("Font");
         }
 

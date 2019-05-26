@@ -28,7 +28,7 @@ namespace ShootEmUp.Objects
         SoundEffect mySong;
 
         public Bullet(Vector2 aDirection, Vector2 aPosition, float aDamage, float aSpeed, GameObject aShooter) :
-            base(TextureLibrary.GetTexture("Bullet"), new Rectangle(aPosition.ToPoint(), new Point(50, 50)))
+            base(TextureLibrary.GetTexture("Bullet"), new Rectangle(aPosition.ToPoint(), new Point(25, 25)))
         {
             myDirection = aDirection;
             myDamage = aDamage;
