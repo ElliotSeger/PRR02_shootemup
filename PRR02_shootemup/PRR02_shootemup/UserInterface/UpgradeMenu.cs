@@ -43,7 +43,7 @@ namespace ShootEmUp.UserInterface
 
         public void Draw(SpriteBatch aSpriteBatch)
         {
-            aSpriteBatch.DrawString(myFont, myText, new Vector2(900, 500), Color.White, 0, Vector2.Zero, 2, SpriteEffects.None, 1);
+            aSpriteBatch.DrawString(myFont, myText, new Vector2(500, 500), Color.White, 0, Vector2.Zero, 2, SpriteEffects.None, 1);
         }
 
         private bool StartedPress(Keys aKey, KeyboardState aCurrentKeyboardState)

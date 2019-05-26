@@ -59,7 +59,7 @@ namespace ShootEmUp
             {
                 new EnemySpawner // Nivå 1.
                 (
-                   (1, new EnemyCargoShip(new Point(100, -10))),
+                   //(3, new EnemyCargoShip(new Point(-10, 300))),
                    (3, new EnemyShipGamma(new Point(100, -10))),
                    (2, new EnemyShipGamma(new Point(500, -10))),
                    (3, new EnemyShipGamma(new Point(700, -10))),

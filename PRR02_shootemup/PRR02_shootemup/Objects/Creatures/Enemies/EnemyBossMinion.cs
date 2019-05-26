@@ -15,7 +15,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         public EnemyBossMinion(Point aPosition) :
             base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 32, 24), 10, 10)
         {
-            AccessSpeed = 300;
+            AccessSpeed = 400;
         }
 
         public override void Update(GameTime someTime)
@@ -45,7 +45,10 @@ namespace ShootEmUp.Objects.Creatures.Enemies
 
             Vector2 tempTargetDirection = Vector2.Normalize(tempPlayerPosition - AccessRectangle.Location.ToVector2());
 
-            base.Update(someTime);
+            if (AccessHealth <= 0)
+            {
+                Game1.myObjects.Remove(this);
+            }
 
             Move(someTime, tempTargetDirection);
         }

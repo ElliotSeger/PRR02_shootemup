@@ -44,7 +44,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 Game1.myObjects.Remove(this);
             }
 
-            Move(someTime, Vector2.UnitY);
+            Move(someTime, Vector2.UnitX);
         }
     }
 }
