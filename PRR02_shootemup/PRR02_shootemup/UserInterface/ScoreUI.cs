@@ -14,7 +14,6 @@ namespace ShootEmUp
     class ScoreUI : GameObject
     {
         SpriteFont myFont;
-        
 
         public ScoreUI() :
             base(null, new Rectangle())

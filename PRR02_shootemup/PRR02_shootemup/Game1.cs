@@ -57,12 +57,18 @@ namespace ShootEmUp
 
             myLevelSpawners = new[]
             {
-                new EnemySpawner(
-                
-                )
+                new EnemySpawner // Nivå 1.
+                (
+                   (1, new EnemyCargoShip(new Point(100, -10))),
+                   (3, new EnemyShipGamma(new Point(100, -10))),
+                   (2, new EnemyShipGamma(new Point(500, -10))),
+                   (3, new EnemyShipGamma(new Point(700, -10))),
+                   (2, new EnemyShipGamma(new Point(800, -10))),
+                   (3, new EnemyShipGamma(new Point(1200, -10))),
+                   (4, new EnemyBoss1(new Point(1250, -10)))
+                ),
 
-                , 
-                new EnemySpawner() // Bygg din nivå.
+                new EnemySpawner() // Nivå 2.
             };
 
             AccessPlayer = new Player();
@@ -74,8 +80,8 @@ namespace ShootEmUp
                 AccessPlayer,
                 new ScoreUI(),
                 new DeathUI(),
+                new LevelUI(),
                 new MoneyUI(),
-                new HealthPowerUp(new Point(50, 50)),
             };
             myObjects.Add(new HealthUI());
 
@@ -96,12 +102,14 @@ namespace ShootEmUp
         {
             myObjects = new List<GameObject>
             {
+                // Vid omstart av spelet laddas bakgrund, spelare, poängtext, pengartext, nivåtext och eventuellt dödsmeny åter in.
+
                 new Background(),
                 AccessPlayer,
                 new ScoreUI(),
-                new DeathUI(),
                 new MoneyUI(),
-                new HealthPowerUp(new Point(50, 50)),
+                new LevelUI(),
+                new DeathUI(),
             };
             myObjects.Add(new HealthUI());
 
@@ -109,12 +117,26 @@ namespace ShootEmUp
 
             myLevelSpawners = new[]
             {
-                new EnemySpawner(
-                   
-                )
+                // Nivå 1. 
+                new EnemySpawner
+                (
+                    (3f, new EnemyShipGamma(new Point(500, -10))),
+                    (1.5f, new EnemyShipGamma(new Point(700, -10)))
+                ),
+                
+                
 
-                ,
-                new EnemySpawner() // Bygg din nivå.
+                // Nivå 2.
+                new EnemySpawner
+                (
+                    
+                ), 
+
+                // Nivå 3.
+                new EnemySpawner
+                (
+                    
+                )
             };
         }
 
@@ -130,6 +152,7 @@ namespace ShootEmUp
             // TODO: use this.Content to load your game content here
             TextureLibrary.LoadTextures(Content);
             FontLibrary.LoadFont(Content);
+            SoundLibrary.LoadMusic(Content);
         }
 
         /// <summary>

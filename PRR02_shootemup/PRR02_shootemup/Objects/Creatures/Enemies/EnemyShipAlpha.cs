@@ -12,15 +12,14 @@ namespace ShootEmUp.Objects.Creatures
 {
     public class EnemyShipAlpha : BaseEnemy
     {
+        float myElapsedTime = 0;
+        float myDamage = 10;
+
         public EnemyShipAlpha(Point aPosition) :
             base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 64, 48), 10, 100)
         {
             AccessSpeed = 100;
         }
-
-        float myElapsedTime = 0;
-        float myDamage = 10;
-        
 
         public override void Update(GameTime someTime)
         {
@@ -32,8 +31,8 @@ namespace ShootEmUp.Objects.Creatures
             {
                 return;
             }
-            Vector2 tempPlayerPosition = tempPlayers.ElementAt(0).AccessRectangle.Location.ToVector2();
 
+            Vector2 tempPlayerPosition = tempPlayers.ElementAt(0).AccessRectangle.Location.ToVector2();
             Vector2 tempTargetDirection = Vector2.Normalize(tempPlayerPosition - AccessRectangle.Location.ToVector2());
 
             Move(someTime, tempTargetDirection);

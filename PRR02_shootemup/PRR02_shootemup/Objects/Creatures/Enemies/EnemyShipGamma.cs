@@ -10,14 +10,14 @@ namespace ShootEmUp.Objects.Creatures.Enemies
 {
     class EnemyShipGamma : BaseEnemy
     {
-        public EnemyShipGamma() :
-            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(500, 750, 64, 48), 10, 50)
-        {
-
-        }
-
         float myElapsedTime = 0;
         float myDamage = 30;
+
+        public EnemyShipGamma(Point aPosition) :
+            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 64, 48), 10, 50)
+        {
+            AccessSpeed = 150;
+        }
 
         public override void Update(GameTime someTime)
         {
@@ -29,6 +29,8 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 myElapsedTime = 0;
                 Game1.myObjects.Add(new Bullet(Vector2.UnitY, AccessRectangle.Location.ToVector2(), myDamage, 15, this));
             }
+
+            Move(someTime, Vector2.UnitY);
 
             base.Update(someTime);
         }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Media;
 using ShootEmUp.Collectibles;
 using ShootEmUp.Libraries;
 using ShootEmUp.Objects.Creatures;

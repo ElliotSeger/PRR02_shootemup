@@ -12,6 +12,11 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         List<(float, BaseEnemy)> myEnemySpawnQueue;
         float myTimeSinceLastSpawn;
 
+        public EnemySpawner(params (float, BaseEnemy)[] someEnemies)
+        {
+            myEnemySpawnQueue = new List<(float, BaseEnemy)>(someEnemies);
+        }
+
         public void Update(GameTime someTime)
         {
             myTimeSinceLastSpawn += (float)someTime.ElapsedGameTime.TotalSeconds;
@@ -22,11 +27,6 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 myEnemySpawnQueue.RemoveAt(0);
                 myTimeSinceLastSpawn = 0;
             }
-        }
-
-        public EnemySpawner(params (float, BaseEnemy)[] someEnemies)
-        {
-            myEnemySpawnQueue = new List<(float, BaseEnemy)>(someEnemies);
         }
     }
 }

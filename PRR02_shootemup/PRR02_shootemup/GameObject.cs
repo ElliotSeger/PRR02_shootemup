@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace ShootEmUp.Objects
             }
         }
 
-        public GameObject(Texture2D aTexture, Rectangle aRectangle, float aRotation = 0)
+        public GameObject(Texture2D aTexture, Rectangle aRectangle, float aRotation = 0, Song aSong = null)
         {
             AccessTexture = aTexture;
             AccessRectangle = aRectangle;

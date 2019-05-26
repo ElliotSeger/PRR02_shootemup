@@ -23,7 +23,6 @@ namespace ShootEmUp.Libraries
         {
             myTextures = new Dictionary<string, Texture2D>
             {
-                ["Player"] = someContent.Load<Texture2D>("player"),
                 ["Ship"] = someContent.Load<Texture2D>("ship"),
                 ["EnemyShip"] = someContent.Load<Texture2D>("enemy"),
                 ["Bullet"] = someContent.Load<Texture2D>("bullet"),
@@ -31,10 +30,9 @@ namespace ShootEmUp.Libraries
                 ["SpeedPowerUp"] = someContent.Load<Texture2D>("powerup_speed"),
                 ["Coin"] = someContent.Load<Texture2D>("coin"),
                 ["UltraCoin"] = someContent.Load<Texture2D>("ultraCoin"),
-                ["Orb"] = someContent.Load<Texture2D>("orb"),
                 ["SpaceBackground"] = someContent.Load<Texture2D>("space"),
                 ["Missile"] = someContent.Load<Texture2D>("missile"),
-                // ["CargoShip"] = someContent.Load<Texture2D>("cargo_ship"),
+                ["CargoShip"] = someContent.Load<Texture2D>("cargo_ship"),
             };
         }
     }

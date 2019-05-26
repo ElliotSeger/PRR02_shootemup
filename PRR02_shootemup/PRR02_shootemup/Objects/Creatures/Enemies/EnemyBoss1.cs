@@ -10,18 +10,14 @@ namespace ShootEmUp.Objects.Creatures.Enemies
 {
     class EnemyBoss1 : BaseEnemy
     {
-        public EnemyBoss1() :
-            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(100, 100, 128, 96), 125, 1000)
+        float myElapsedTime = 0;
+        float myElapsedSpawnTime = 0;
+
+        public EnemyBoss1(Point aPosition) :
+            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 128, 96), 125, 1000)
         {
             AccessSpeed = 200;
         }
-
-        float myElapsedTime = 0;
-        float myElapsedSpawnTime = 0;
-        float myDamage = 25;
-        int myDirectionCount = 3;
-        float myTotalShootingAngle = 1;
-        float myCenterAngle = MathHelper.PiOver2;
 
         public override void Update(GameTime someTime)
         {
@@ -36,16 +32,9 @@ namespace ShootEmUp.Objects.Creatures.Enemies
             }
 
             Vector2 tempPlayerPosition = tempPlayers.ElementAt(0).AccessRectangle.Location.ToVector2();
-
             Vector2 tempTargetDirection = Vector2.Normalize(tempPlayerPosition - AccessRectangle.Location.ToVector2());
 
             Move(someTime, tempTargetDirection);
-
-            if (myElapsedTime >= 0.3)
-            {
-                myElapsedTime = 0;
-                Game1.myObjects.Add(new Bullet(tempTargetDirection, AccessRectangle.Location.ToVector2(), myDamage, 30, this));
-            }
 
             if (myElapsedSpawnTime >= 3)
             {
@@ -61,6 +50,8 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 Game1.myIsShowingUpgradeMenu = true;
                 Game1.NextLevel();
             }
+
+            base.Update(someTime);
         }
     }
 }

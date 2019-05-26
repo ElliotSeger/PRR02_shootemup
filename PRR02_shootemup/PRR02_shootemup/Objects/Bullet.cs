@@ -12,6 +12,8 @@ using ShootEmUp.Objects.Creatures;
 using ShootEmUp.PowerUps;
 using ShootEmUp.Objects.Creatures.Enemies;
 using ShootEmUp.Collectibles;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 namespace ShootEmUp.Objects
 {
@@ -23,6 +25,7 @@ namespace ShootEmUp.Objects
         Vector2 myDirection;
         GameObject myShooter;
         float mySpeed;
+        SoundEffect mySong;
 
         public Bullet(Vector2 aDirection, Vector2 aPosition, float aDamage, float aSpeed, GameObject aShooter) :
             base(TextureLibrary.GetTexture("Bullet"), new Rectangle(aPosition.ToPoint(), new Point(50, 50)))
@@ -31,6 +34,7 @@ namespace ShootEmUp.Objects
             myDamage = aDamage;
             myShooter = aShooter;
             mySpeed = aSpeed;
+            mySong = SoundLibrary.GetMusic("Shoot");
         }
 
         public override void Update(GameTime someTime)
@@ -48,7 +52,7 @@ namespace ShootEmUp.Objects
                 {
                     if (tempCurrentObject is BaseEnemy && myShooter is BaseEnemy)
                     {
-                        continue;
+                        continue; // Kulan ignorerar fiender om myShooter är BaseEnemy.
                     }
 
                     if (tempCurrentObject is Creature)
@@ -58,20 +62,22 @@ namespace ShootEmUp.Objects
 
                     if (tempCurrentObject is PowerUp)
                     {
-                        continue;
+                        continue; // Kulan ignorerar PowerUps.
                     }
 
                     if (tempCurrentObject is Collectible)
                     {
-                        continue;
+                        continue; // Kulan ignorerar Collectibles.
                     }
 
                     if (tempCurrentObject is Missile)
                     {
-                        continue;
+                        continue; // Kulan ignorerar missiler.
                     }
+
                     Game1.myObjects.Remove(this);
                 }
+                // mySong.Play();
             }
 
             // Förstör kulan efter 2000 längdenheter.
