@@ -24,7 +24,7 @@ namespace ShootEmUp
         SpriteBatch spriteBatch;
         public static List<GameObject> myObjects;
         static EnemySpawner[] myLevelSpawners;
-        static int myCurrentLevelIndex = 0;
+        public static int myCurrentLevelIndex = 0;
         public static bool myIsShowingUpgradeMenu = false;
         public static Player AccessPlayer { get; set; }
         UpgradeMenu myUpgradeMenu;

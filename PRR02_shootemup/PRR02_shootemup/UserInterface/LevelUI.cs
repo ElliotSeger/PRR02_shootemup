@@ -27,7 +27,7 @@ namespace ShootEmUp.UserInterface
 
         public override void Draw(GameTime someTime, SpriteBatch aSpriteBatch)
         {
-            aSpriteBatch.DrawString(myFont, $"Level", new Vector2(50, 150), Color.White);
+            aSpriteBatch.DrawString(myFont, $"Level {Game1.myCurrentLevelIndex + 1}", new Vector2(50, 150), Color.White);
         }
     }
 }

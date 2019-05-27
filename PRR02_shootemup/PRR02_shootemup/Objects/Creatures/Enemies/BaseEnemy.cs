@@ -15,17 +15,20 @@ namespace ShootEmUp.Objects.Creatures.Enemies
     {
         static Random myRandom = new Random();
         int myScore;
-        float myMaxDistance = 100;
         float myTraveledDistance = 0;
+        Vector2 myPreviousPosition;
 
         public BaseEnemy(Texture2D aTexture, Rectangle aRectangle, float aHealth = 0, int aScore = 0) :
             base(aTexture, aRectangle, aHealth)
         {
             myScore = aScore;
+            myPreviousPosition = AccessPosition;
         }
 
         public override void Update(GameTime someTime)
         {
+            myTraveledDistance += (AccessPosition - myPreviousPosition).Length();
+
             if (AccessHealth <= 0)
             {
                 double tempValue = myRandom.NextDouble();
@@ -48,6 +51,13 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 Game1.myObjects.Remove(this);
                 (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(myScore);
             }
+
+            if (myTraveledDistance >= 300)
+            {
+                Game1.myObjects.Remove(this);
+            }
+
+            myPreviousPosition = AccessPosition;
         }
 
         // Move-metoden gör att fienderna flyttar på sig på olika sätt. 
