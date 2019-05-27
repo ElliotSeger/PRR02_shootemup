@@ -38,7 +38,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                     Game1.myObjects.Add(new HealthPowerUp(AccessPosition.ToPoint()));
                 }
 
-                else if (tempValue < 0.7) // 10 % chans att en fiende släpper ett platinamynt.
+                else if (tempValue < 0.8) // 20 % chans att en fiende släpper ett platinamynt.
                 {
                     Game1.myObjects.Add(new PlatinumCoin(AccessPosition.ToPoint()));
                 }
