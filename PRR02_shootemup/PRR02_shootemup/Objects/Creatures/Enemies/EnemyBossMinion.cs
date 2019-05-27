@@ -28,6 +28,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 GameObject tempCurrentObject = Game1.myObjects[i];
                 if (tempCurrentObject.AccessRectangle.Intersects(AccessRectangle))
                 {
+                    // När fienden kolliderar med spelaren förstörs den och spelaren tar tio skada.
                     if (tempCurrentObject is Player.Player player)
                     {
                         player.AccessHealth -= 10;

@@ -14,7 +14,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         float myElapsedSpawnTime = 0;
 
         public EnemyBoss1(Point aPosition) :
-            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 128, 96), 125, 1000)
+            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 128, 96), 250, 1000)
         {
             AccessSpeed = 200;
         }

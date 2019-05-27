@@ -39,7 +39,6 @@ namespace ShootEmUp
             graphics.ApplyChanges();
             graphics.IsFullScreen = false;
 
-
             IsMouseVisible = true;
         }
 
@@ -60,15 +59,29 @@ namespace ShootEmUp
                 new EnemySpawner // Nivå 1.
                 (
                    //(3, new EnemyCargoShip(new Point(-10, 300))),
-                   (3, new EnemyShipGamma(new Point(100, -10))),
-                   (2, new EnemyShipGamma(new Point(500, -10))),
-                   (3, new EnemyShipGamma(new Point(700, -10))),
-                   (2, new EnemyShipGamma(new Point(800, -10))),
-                   (3, new EnemyShipGamma(new Point(1200, -10))),
+                   //(0, new EnemyShipGamma(new Point(100, -10))),
+                   //(2, new EnemyShipGamma(new Point(500, -10))),
+                   //(3, new EnemyShipGamma(new Point(700, -10))),
+                   //(2, new EnemyShipGamma(new Point(800, -10))),
+                   //(3, new EnemyShipGamma(new Point(1200, -10))),
+                   //(2, new EnemyShipBeta(new Point(550, -10))),
                    (4, new EnemyBoss1(new Point(1250, -10)))
                 ),
 
-                new EnemySpawner() // Nivå 2.
+                new EnemySpawner // Nivå 2.
+                (
+                    (3, new EnemyShipBeta(new Point(400, -10))),
+                    (5, new EnemyShipGamma(new Point(700, -10))),
+                    (0, new EnemyShipAlpha(new Point(550, -10))),
+                    (2, new EnemyShipBeta(new Point(750, -10))),
+                    (2, new EnemyShipBeta(new Point(400, -10))),
+                    (1, new EnemyShipGamma(new Point(550, -10))),
+                    (0, new EnemyCargoShip(new Point(-10, 350))),
+                    (1, new EnemyShipGamma(new Point(250, -10))),
+                    (1, new EnemyShipGamma(new Point(850, -10))),
+                    (1, new EnemyShipGamma(new Point(550, -10))),
+                    (6, new EnemyBoss2(new Point(500, -10)))
+                ),
             };
 
             AccessPlayer = new Player();
@@ -84,7 +97,6 @@ namespace ShootEmUp
                 new MoneyUI(),
             };
             myObjects.Add(new HealthUI());
-
         }
 
         public static void NextLevel()
@@ -120,8 +132,14 @@ namespace ShootEmUp
                 // Nivå 1. 
                 new EnemySpawner
                 (
-                    (3f, new EnemyShipGamma(new Point(500, -10))),
-                    (1.5f, new EnemyShipGamma(new Point(700, -10)))
+                    //(3, new EnemyCargoShip(new Point(-10, 300))),
+                   //(0, new EnemyShipGamma(new Point(100, -10))),
+                   //(2, new EnemyShipGamma(new Point(500, -10))),
+                   //(3, new EnemyShipGamma(new Point(700, -10))),
+                   //(2, new EnemyShipGamma(new Point(800, -10))),
+                   //(3, new EnemyShipGamma(new Point(1200, -10))),
+                   //(2, new EnemyShipBeta(new Point(550, -10))),
+                   (4, new EnemyBoss1(new Point(1250, -10)))
                 ),
                 
                 
@@ -129,7 +147,17 @@ namespace ShootEmUp
                 // Nivå 2.
                 new EnemySpawner
                 (
-                    
+                    (3, new EnemyShipBeta(new Point(400, -10))),
+                    (5, new EnemyShipGamma(new Point(700, -10))),
+                    (0, new EnemyShipAlpha(new Point(550, -10))),
+                    (2, new EnemyShipBeta(new Point(750, -10))),
+                    (2, new EnemyShipBeta(new Point(400, -10))),
+                    (1, new EnemyShipGamma(new Point(550, -10))),
+                    (0, new EnemyCargoShip(new Point(-10, 350))),
+                    (1, new EnemyShipGamma(new Point(250, -10))),
+                    (1, new EnemyShipGamma(new Point(850, -10))),
+                    (1, new EnemyShipGamma(new Point(550, -10))),
+                    (6, new EnemyBoss2(new Point(500, -10)))
                 ), 
 
                 // Nivå 3.

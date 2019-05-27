@@ -10,16 +10,13 @@ namespace ShootEmUp.Objects.Creatures.Enemies
 {
     class EnemyBoss2 : BaseEnemy
     {
-        int myDirectionCount = 3;
-        float myTotalShootingAngle = 1;
-        float myCenterAngle = MathHelper.PiOver2;
         float myElapsedTime = 0;
         float myDamage = 10;
 
-        public EnemyBoss2() :
-            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle())
+        public EnemyBoss2(Point aPosition) :
+            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 128, 96), 250, 1000)
         {
-
+            AccessSpeed = 100;
         }
 
         public override void Update(GameTime someTime)
@@ -44,6 +41,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 Game1.myObjects.Add(new Bullet(tempTargetDirection, AccessRectangle.Location.ToVector2(), myDamage, 30, this));
             }
 
+            Move(someTime, tempTargetDirection);
 
             base.Update(someTime);
         }

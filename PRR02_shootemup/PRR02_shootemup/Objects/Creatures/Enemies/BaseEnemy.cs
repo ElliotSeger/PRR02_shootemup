@@ -15,6 +15,8 @@ namespace ShootEmUp.Objects.Creatures.Enemies
     {
         static Random myRandom = new Random();
         int myScore;
+        float myMaxDistance = 100;
+        float myTraveledDistance = 0;
 
         public BaseEnemy(Texture2D aTexture, Rectangle aRectangle, float aHealth = 0, int aScore = 0) :
             base(aTexture, aRectangle, aHealth)
@@ -45,7 +47,6 @@ namespace ShootEmUp.Objects.Creatures.Enemies
 
                 Game1.myObjects.Remove(this);
                 (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(myScore);
-                
             }
         }
 

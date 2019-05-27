@@ -19,7 +19,7 @@ namespace ShootEmUp.Objects.Creatures.Player
         Vector2 myMoveDirection;
         Vector2 myRotationDirection;
         KeyboardState myPreviousKeyboardState;
-        public const int myMaxHealth = 100;
+        public const int myMaxHealth = 10000;
         public int AccessScore { get; set; }
         public int AccessMoney { get; set; }
 
