@@ -15,7 +15,6 @@ namespace ShootEmUp.Objects
 {
     class Missile : GameObject
     {
-        float myMaxDistance = 2000;
         float myTraveledDistance = 0;
         float myDamage;
         Vector2 myDirection;
@@ -85,7 +84,7 @@ namespace ShootEmUp.Objects
 
                 // Förstör missilen efter 2000 längdenheter.
 
-                if (myTraveledDistance > myMaxDistance)
+                if (myTraveledDistance > 2000)
                 {
                     Game1.myObjects.Remove(this);
                 }

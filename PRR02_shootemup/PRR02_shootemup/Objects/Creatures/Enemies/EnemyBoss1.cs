@@ -50,8 +50,6 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 Game1.myIsShowingUpgradeMenu = true;
                 Game1.NextLevel();
             }
-
-            base.Update(someTime);
         }
     }
 }

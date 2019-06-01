@@ -19,7 +19,7 @@ namespace ShootEmUp.UserInterface
 
         public UpgradeMenu()
         {
-            myText = "Press K to upgrade your max health to 200 for 5 coins! \nPress L to next level!";
+            myText = "Press J to upgrade your max health to 200 for 3 coins! \nPress K to upgrade your max speed for 5 coins! \nPress L to next level!";
             myFont = FontLibrary.GetFont("Font");
         }
 
@@ -27,10 +27,17 @@ namespace ShootEmUp.UserInterface
         {
             KeyboardState tempKeyboardState = Keyboard.GetState();
 
-            if (StartedPress(Keys.K, tempKeyboardState) && Game1.AccessPlayer.AccessMoney >= 5)
+            // Låter spelaren uppgradera sin hälsa för 3 mynt om spelaren har lägre än 200 maxhälsa.
+            if (StartedPress(Keys.J, tempKeyboardState) && Game1.AccessPlayer.AccessMoney >= 3 && Game1.AccessPlayer.AccessHealth < 200)
             {
-                Game1.myIsShowingUpgradeMenu = false;
                 Game1.AccessPlayer.AccessHealth = 200;
+                Game1.AccessPlayer.AccessMoney -= 3;
+            }
+
+            // Låter spelaren uppgradera sin fart för 5 mynt om spelaren har lägre än maxfarten. 
+            if (StartedPress(Keys.K, tempKeyboardState) && Game1.AccessPlayer.AccessMoney >= 5 && Game1.AccessPlayer.AccessSpeed < 550)
+            {
+                Game1.AccessPlayer.AccessSpeed = 550;
                 Game1.AccessPlayer.AccessMoney -= 5;
             }
 

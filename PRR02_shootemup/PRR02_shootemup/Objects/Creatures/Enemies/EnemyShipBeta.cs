@@ -11,9 +11,9 @@ namespace ShootEmUp.Objects.Creatures.Enemies
     class EnemyShipBeta : BaseEnemy
     {
         public EnemyShipBeta(Point aPosition) :
-            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 64, 48), 10, 75)
+            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 64, 48), 30, 75)
         {
-            AccessSpeed = 100;
+            AccessSpeed = 150;
         }
 
         float myElapsedTime = 0;

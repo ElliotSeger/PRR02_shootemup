@@ -25,8 +25,8 @@ namespace ShootEmUp.Objects
         Vector2 myDirection;
         GameObject myShooter;
         float mySpeed;
-        SoundEffect mySong;
-        bool myPlay = true;
+        SoundEffect mySound;
+        bool myPlaySound = true;
 
         public Bullet(Vector2 aDirection, Vector2 aPosition, float aDamage, float aSpeed, GameObject aShooter) :
             base(TextureLibrary.GetTexture("Bullet"), new Rectangle(aPosition.ToPoint(), new Point(25, 25)))
@@ -35,7 +35,7 @@ namespace ShootEmUp.Objects
             myDamage = aDamage;
             myShooter = aShooter;
             mySpeed = aSpeed;
-            mySong = SoundLibrary.GetMusic("Shoot");
+            mySound = SoundLibrary.GetSound("Shoot");
         }
 
         public override void Update(GameTime someTime)
@@ -79,14 +79,14 @@ namespace ShootEmUp.Objects
                     Game1.myObjects.Remove(this);
                 }
 
-                if (myPlay == true) // Ljudfilen spelas enbart en gång när kulan skapas. 
+                if (myPlaySound == true) // Ljudfilen spelas enbart en gång när kulan skapas. 
                 {
-                    mySong.Play();
-                    myPlay = false;
+                    mySound.Play();
+                    myPlaySound = false;
                 }
             }
 
-            if (myTraveledDistance > myMaxDistance) // Om kulans distans är mer än 2000 förstörs den.
+            if (myTraveledDistance > myMaxDistance) // Om kulans distans är mer än 2000 längdenheter förstörs den.
             {
                 Game1.myObjects.Remove(this);
             }

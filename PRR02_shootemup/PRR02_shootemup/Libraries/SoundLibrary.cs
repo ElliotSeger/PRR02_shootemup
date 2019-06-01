@@ -13,16 +13,17 @@ namespace ShootEmUp.Libraries
     {
         static Dictionary<string, SoundEffect> mySound;
 
-        public static SoundEffect GetMusic(string aKey)
+        public static SoundEffect GetSound(string aKey)
         {
             return mySound[aKey];
         }
 
-        public static void LoadMusic(ContentManager someContent)
+        public static void LoadSound(ContentManager someContent)
         {
             mySound = new Dictionary<string, SoundEffect>
             {
                 ["Shoot"] = someContent.Load<SoundEffect>("shoot"),
+                ["Bee"] = someContent.Load<SoundEffect>("bee"),
             };
         }
     }

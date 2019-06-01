@@ -19,7 +19,7 @@ namespace ShootEmUp.Objects.Creatures.Player
         Vector2 myMoveDirection;
         Vector2 myRotationDirection;
         KeyboardState myPreviousKeyboardState;
-        public const int myMaxHealth = 10000;
+        public const int myMaxHealth = 100;
         public int AccessScore { get; set; }
         public int AccessMoney { get; set; }
 
@@ -68,9 +68,9 @@ namespace ShootEmUp.Objects.Creatures.Player
                 AccessPosition += myMoveDirection * AccessSpeed * tempDeltaTime;
             }
 
-            // Låter skeppet skjuta kulor med Blanksteg.
+            // Låter skeppet skjuta kulor med Blanksteg. Kulan åker dit där spelaren tittar åt med trigonometri.
 
-            if (aKeyboardState.IsKeyDown(Keys.Space) && myElapsedTime >= 0.4f)
+            if (aKeyboardState.IsKeyDown(Keys.Space) && myElapsedTime >= 0.35f)
             {
                 myElapsedTime = 0;
                 Game1.myObjects.Add(new Bullet(new Vector2((float)Math.Cos(AccessRotation), (float)Math.Sin(AccessRotation)), AccessRectangle.Location.ToVector2(), myDamage, 15, this));
@@ -93,7 +93,6 @@ namespace ShootEmUp.Objects.Creatures.Player
             }
 
             // Låter skeppet rotera åt höger håll med högerpilen.
-
 
             if (StartedPress(Keys.Right, tempKeyboardState))
             {

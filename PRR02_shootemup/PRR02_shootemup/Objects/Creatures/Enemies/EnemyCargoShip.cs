@@ -13,15 +13,20 @@ namespace ShootEmUp.Objects.Creatures.Enemies
     class EnemyCargoShip : BaseEnemy
     {
         Random myRandom = new Random();
+        float myTraveledDistance = 0;
+        Vector2 myPreviousPosition;
 
         public EnemyCargoShip(Point aPosition) :
-            base(TextureLibrary.GetTexture("CargoShip"), new Rectangle(aPosition.X, aPosition.Y, 64, 48), 50)
+            base(TextureLibrary.GetTexture("EnemyCargo"), new Rectangle(aPosition.X, aPosition.Y, 64, 48), 50, 300)
         {
             AccessSpeed = 200;
+            myPreviousPosition = AccessPosition;
         }
 
         public override void Update(GameTime someTime)
         {
+            myTraveledDistance += (AccessPosition - myPreviousPosition).Length();
+
             if (AccessHealth <= 0)
             {
                 double tempValue = myRandom.NextDouble();
@@ -45,6 +50,11 @@ namespace ShootEmUp.Objects.Creatures.Enemies
             }
 
             Move(someTime, Vector2.UnitX);
+
+            if (myTraveledDistance >= 600000)
+            {
+                Game1.myObjects.Remove(this);
+            }
         }
     }
 }

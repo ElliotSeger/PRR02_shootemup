@@ -52,9 +52,9 @@ namespace ShootEmUp.Objects.Creatures.Enemies
                 (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(myScore);
             }
 
-            if (myTraveledDistance >= 300)
+            if (myTraveledDistance >= 1000)
             {
-                Game1.myObjects.Remove(this);
+                Game1.myObjects.Remove(this); // Förstör fienden efter 1500 längdenheter.
             }
 
             myPreviousPosition = AccessPosition;

@@ -34,8 +34,8 @@ namespace ShootEmUp
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = 1440;
-            graphics.PreferredBackBufferHeight = 810;
+            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = 1080;
             graphics.ApplyChanges();
             graphics.IsFullScreen = false;
 
@@ -58,13 +58,13 @@ namespace ShootEmUp
             {
                 new EnemySpawner // Nivå 1.
                 (
-                   //(3, new EnemyCargoShip(new Point(-10, 300))),
-                   //(0, new EnemyShipGamma(new Point(100, -10))),
-                   //(2, new EnemyShipGamma(new Point(500, -10))),
-                   //(3, new EnemyShipGamma(new Point(700, -10))),
-                   //(2, new EnemyShipGamma(new Point(800, -10))),
-                   //(3, new EnemyShipGamma(new Point(1200, -10))),
-                   //(2, new EnemyShipBeta(new Point(550, -10))),
+                   (3, new EnemyCargoShip(new Point(-10, 300))),
+                   (0, new EnemyShipGamma(new Point(100, -10))),
+                   (2, new EnemyShipGamma(new Point(500, -10))),
+                   (3, new EnemyShipGamma(new Point(700, -10))),
+                   (2, new EnemyShipGamma(new Point(800, -10))),
+                   (3, new EnemyShipGamma(new Point(1200, -10))),
+                   (2, new EnemyShipBeta(new Point(550, -10))),
                    (4, new EnemyBoss1(new Point(1250, -10)))
                 ),
 
@@ -125,46 +125,34 @@ namespace ShootEmUp
             };
             myObjects.Add(new HealthUI());
 
-            AccessPlayer.AccessHealth = Player.myMaxHealth;
-
             myLevelSpawners = new[]
             {
-                // Nivå 1. 
-                new EnemySpawner
+                new EnemySpawner // Nivå 1. 
                 (
-                    //(3, new EnemyCargoShip(new Point(-10, 300))),
-                   //(0, new EnemyShipGamma(new Point(100, -10))),
-                   //(2, new EnemyShipGamma(new Point(500, -10))),
-                   //(3, new EnemyShipGamma(new Point(700, -10))),
-                   //(2, new EnemyShipGamma(new Point(800, -10))),
-                   //(3, new EnemyShipGamma(new Point(1200, -10))),
-                   //(2, new EnemyShipBeta(new Point(550, -10))),
+                   (3, new EnemyCargoShip(new Point(-10, 300))),
+                   (0, new EnemyShipGamma(new Point(100, -10))),
+                   (2, new EnemyShipGamma(new Point(500, -10))),
+                   (3, new EnemyShipGamma(new Point(700, -10))),
+                   (2, new EnemyShipGamma(new Point(800, -10))),
+                   (3, new EnemyShipGamma(new Point(1200, -10))),
+                   (2, new EnemyShipBeta(new Point(550, -10))),
                    (4, new EnemyBoss1(new Point(1250, -10)))
                 ),
-                
-                
 
-                // Nivå 2.
-                new EnemySpawner
+               new EnemySpawner // Nivå 2.
                 (
                     (3, new EnemyShipBeta(new Point(400, -10))),
                     (5, new EnemyShipGamma(new Point(700, -10))),
-                    (0, new EnemyShipAlpha(new Point(550, -10))),
+                    (3, new EnemyShipAlpha(new Point(550, -10))),
                     (2, new EnemyShipBeta(new Point(750, -10))),
                     (2, new EnemyShipBeta(new Point(400, -10))),
-                    (1, new EnemyShipGamma(new Point(550, -10))),
-                    (0, new EnemyCargoShip(new Point(-10, 350))),
+                    (3, new EnemyShipGamma(new Point(550, -10))),
+                    (3, new EnemyCargoShip(new Point(-10, 350))),
                     (1, new EnemyShipGamma(new Point(250, -10))),
                     (1, new EnemyShipGamma(new Point(850, -10))),
                     (1, new EnemyShipGamma(new Point(550, -10))),
                     (6, new EnemyBoss2(new Point(500, -10)))
-                ), 
-
-                // Nivå 3.
-                new EnemySpawner
-                (
-                    
-                )
+                ),
             };
         }
 
@@ -180,7 +168,7 @@ namespace ShootEmUp
             // TODO: use this.Content to load your game content here
             TextureLibrary.LoadTextures(Content);
             FontLibrary.LoadFont(Content);
-            SoundLibrary.LoadMusic(Content);
+            SoundLibrary.LoadSound(Content);
         }
 
         /// <summary>

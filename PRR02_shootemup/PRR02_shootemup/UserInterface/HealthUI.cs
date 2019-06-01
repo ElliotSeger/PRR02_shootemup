@@ -31,7 +31,7 @@ namespace ShootEmUp.UI
 
         public override void Draw(GameTime someTime, SpriteBatch aSpriteBatch)
         {
-            aSpriteBatch.DrawString(myFont, $"Health {myPlayer.AccessHealth}", new Vector2(1000, 50), Color.White);
+            aSpriteBatch.DrawString(myFont, $"Health {myPlayer.AccessHealth}", new Vector2(1780, 50), Color.White);
         }
     }
 }

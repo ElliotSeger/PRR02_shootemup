@@ -16,9 +16,9 @@ namespace ShootEmUp.Objects.Creatures
         float myDamage = 10;
 
         public EnemyShipAlpha(Point aPosition) :
-            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 64, 48), 10, 100)
+            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 64, 48), 40, 100)
         {
-            AccessSpeed = 100;
+            AccessSpeed = 200;
         }
 
         public override void Update(GameTime someTime)

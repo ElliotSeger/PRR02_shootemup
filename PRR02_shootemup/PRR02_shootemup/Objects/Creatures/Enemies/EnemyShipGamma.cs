@@ -14,7 +14,7 @@ namespace ShootEmUp.Objects.Creatures.Enemies
         float myDamage = 30;
 
         public EnemyShipGamma(Point aPosition) :
-            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 64, 48), 10, 50)
+            base(TextureLibrary.GetTexture("EnemyShip"), new Rectangle(aPosition.X, aPosition.Y, 64, 48), 20, 50)
         {
             AccessSpeed = 150;
         }

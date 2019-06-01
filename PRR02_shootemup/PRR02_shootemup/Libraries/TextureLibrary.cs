@@ -25,14 +25,14 @@ namespace ShootEmUp.Libraries
             {
                 ["Ship"] = someContent.Load<Texture2D>("ship"),
                 ["EnemyShip"] = someContent.Load<Texture2D>("enemy"),
+                ["EnemyMinion"] = someContent.Load<Texture2D>("enemy_minion"),
+                ["EnemyCargo"] = someContent.Load<Texture2D>("enemy_cargo"),
                 ["Bullet"] = someContent.Load<Texture2D>("bullet"),
                 ["HealthPowerUp"] = someContent.Load<Texture2D>("powerup_health"),
-                ["SpeedPowerUp"] = someContent.Load<Texture2D>("powerup_speed"),
                 ["Coin"] = someContent.Load<Texture2D>("coin"),
                 ["UltraCoin"] = someContent.Load<Texture2D>("ultraCoin"),
                 ["SpaceBackground"] = someContent.Load<Texture2D>("space"),
                 ["Missile"] = someContent.Load<Texture2D>("missile"),
-                ["CargoShip"] = someContent.Load<Texture2D>("cargo_ship"),
             };
         }
     }

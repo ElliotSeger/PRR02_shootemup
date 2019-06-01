@@ -67,7 +67,6 @@
     <Compile Include="Objects\Missile.cs" />
     <Compile Include="Objects\PowerUps\HealthPowerUp.cs" />
     <Compile Include="Objects\PowerUps\PowerUp.cs" />
-    <Compile Include="Objects\PowerUps\SpeedPowerUp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInterface\LevelUI.cs" />

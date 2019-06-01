@@ -43,7 +43,14 @@ namespace ShootEmUp.Objects.Creatures.Enemies
 
             Move(someTime, tempTargetDirection);
 
-            base.Update(someTime);
+            if (AccessHealth <= 0)
+            {
+                Game1.myObjects.Remove(this);
+                (Game1.myObjects.Where(x => x is ScoreUI).First() as ScoreUI).AddScore(1000);
+
+                Game1.myIsShowingUpgradeMenu = true;
+                Game1.NextLevel();
+            }
         }
     }
 }
